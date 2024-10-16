@@ -51,7 +51,7 @@ FINAL, DIRECT
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/ProxyLite/ProxyLite.list, policy = HK, tag = Proxy, enabled = true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/GitHub/GitHub.list, policy = HK, tag = GitHub, enabled = true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Google/Google.list, policy = US, tag = Google, enabled = true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/OneDrive/OneDrive.list, policy = US, tag = Onedrive, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/OneDrive/OneDrive.list, policy = HK, tag = Onedrive, enabled = true
 
 [Host]
 
