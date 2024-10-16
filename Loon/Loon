@@ -68,6 +68,7 @@ https://raw.githubusercontent.com/chavyleung/scripts/refs/heads/master/box/rewri
 https://raw.githubusercontent.com/sub-store-org/Sub-Store/refs/heads/master/config/Loon.plugin, policy = HK, enabled = true
 https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.loon.plugin, policy = HK, enabled = true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rewrite/Loon/AdvertisingLite/AdvertisingLite.plugin, enabled = true
+http://script.hub/file/_start_/https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/Bilibili.conf/_end_/Bilibili.plugin?type=qx-rewrite&target=loon-plugin&del=true, enabled = true
 
 [Mitm]
 hostname = 
