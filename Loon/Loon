@@ -51,11 +51,14 @@ FINAL, DIRECT
 https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Rule/ApplePushNotificationService.list, policy = DIRECT, tag = Apple Push Notification Service, enabled = true
 https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Rule/AppleID.list, policy = DIRECT, tag = Apple ID, enabled = true
 https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Rule/AppStore.list, policy = DIRECT, tag = App Store, enabled = true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/GitHub/GitHub.list, policy = 🇭🇰HongKong, tag = GitHub, enabled = true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Google/Google.list, policy = 🇺🇸United States, tag = Google, enabled = true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/OneDrive/OneDrive.list, policy = 🇭🇰HongKong, tag = OneDrive, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/GitHub/GitHub.list, policy = HK, tag = GitHub, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Google/Google.list, policy = US, tag = Google, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/OneDrive/OneDrive.list, policy = HK, tag = OneDrive, enabled = true
 https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Rule/LAN, policy = DIRECT, tag = LAN, enabled = true
 https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Rule/CN_REGION, policy = DIRECT, tag = CN REGION, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Twitter/Twitter.list, policy = HK, tag = Twitter, enabled = true
+https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Rule/AI.list, policy = 全球手动, tag = US, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Telegram/Telegram.list, policy = US, tag = Telegram, enabled = true
 
 [Host]
 
