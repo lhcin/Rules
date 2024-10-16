@@ -42,7 +42,7 @@ SG = = url-test, 🇸🇬Singapore, interval = 60, tolerance = 50, img-url = htt
 # Manual Proxy
 US = select, 🇺🇸United States, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 OW = select, OtherWise, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
-ADBlock = select, REJECT, DIRECT
+ADBlock = select, REJECT, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
 
 [Rule]
 FINAL, DIRECT
