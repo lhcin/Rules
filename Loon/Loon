@@ -44,16 +44,16 @@ OW = select, OtherWise, img-url = https://raw.githubusercontent.com/Koolson/Qure
 
 
 [Rule]
-FINAL, direct
+FINAL, DIRECT
 
 [Remote Rule]
 
 https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Rule/ApplePushNotificationService.list, policy = DIRECT, tag = Apple Push Notification Service, enabled = true
 https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Rule/AppleID.list, policy = DIRECT, tag = Apple ID, enabled = true
-https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Rule/AppStore.list, policy = DIRECT, tag = App Store, enabled = false
+https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Rule/AppStore.list, policy = DIRECT, tag = App Store, enabled = true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/GitHub/GitHub.list, policy = 🇭🇰HongKong, tag = GitHub, enabled = true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Google/Google.list, policy = 🇺🇸United States, tag = Google, enabled = true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/OneDrive/OneDrive.list, policy = 🇭🇰HongKong tag = OneDrive, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/OneDrive/OneDrive.list, policy = 🇭🇰HongKong, tag = OneDrive, enabled = true
 https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Rule/LAN, policy = DIRECT, tag = LAN, enabled = true
 https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Rule/CN_REGION, policy = DIRECT, tag = CN REGION, enabled = true
 
@@ -67,7 +67,7 @@ https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Rule/CN_RE
 https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/LoonGallery.plugin, policy = 🇭🇰HongKong, enabled = true
 https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/Block_HTTPDNS.plugin, enabled = true
 https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/BlockAdvertisers.plugin, enabled = true
-https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/QuickSearch.plugin, enabled = true
+https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/QuickSearch.plugin, enabled = false
 https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/Prevent_DNS_Leaks.plugin, policy = 🇭🇰HongKong, enabled = true
 https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/Node_detection_tool.plugin, enabled = true
 https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/BoxJs.plugin, policy = 🇭🇰HongKong, enabled = true
