@@ -75,7 +75,8 @@ https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/Pre
 https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/Node_detection_tool.plugin, enabled = true
 https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/BoxJs.plugin, policy = HK, enabled = true
 https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/Sub-Store.plugin, policy = HK, enabled = true
-https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/Script-Hub.plugin, policy = HK, enabled = true
+https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.loon.plugin, policy = HK, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rewrite/Loon/AdvertisingLite/AdvertisingLite.plugin, enabled = true
 
 [Mitm]
 hostname = 
