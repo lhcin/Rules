@@ -62,9 +62,7 @@ https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/
 [Script]
 
 [Plugin]
-https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/LoonGallery.plugin, policy = HK, enabled = true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rewrite/Loon/BlockHTTPDNS/BlockHTTPDNS.plugin, enabled = true
-# https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/Node_detection_tool.plugin, enabled = true
 https://raw.githubusercontent.com/ssyit/Rules/refs/heads/main/Loon/Plugin/ip_check_tools.plugin, enabled = true
 https://raw.githubusercontent.com/chavyleung/scripts/refs/heads/master/box/rewrite/boxjs.rewrite.loon.plugin, policy = HK, enabled = true
 https://raw.githubusercontent.com/sub-store-org/Sub-Store/refs/heads/master/config/Loon.plugin, policy = HK, enabled = true
