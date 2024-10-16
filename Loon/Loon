@@ -28,7 +28,7 @@ bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/
 [Remote Filter]
 🇭🇰HongKong = NameRegex, FilterKey = "^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)(专线|手游|游戏|海外|(\b(GAME)\b))).*$"
 🇨🇳Taiwan = NameRegex, FilterKey =  "^(?=.*((?i)🇨🇳|台湾|(\b(TW|Tai|Taiwan)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
-🇯🇵Japan = NameRegex, FilterKey = "^(?=.*((?i)🇯🇵|日本|(\b(JP|Japan)\b)))(?!.*((?i)(专线|手游|游戏|海外|(\b(GAME)\b))).*$"
+🇯🇵Japan = NameRegex, FilterKey = (?=.*(日本|JP|(?i)Japan))^((?!(专线|手游|游戏|海外|game)).)*$
 🇸🇬Singapore = NameRegex, FilterKey = "^(?=.*((?i)🇸🇬|新加坡|狮城|(\b(SG|Singapore)\b)))(?!.*((?i)(专线|手游|游戏|海外|(\b(GAME)\b))).*$"
 🇺🇸United States = NameRegex, FilterKey = "^(?=.*((?i)🇺🇸|美国|(\b(US|United States)\b)))(?!.*((?i)(专线|手游|游戏|海外|(\b(GAME)\b))).*$"
 OtherWise = NameRegex, FilterKey = "^(?=.*((?i)马|俄|印|德|土|阿|拿|菲|澳|爱|荷|瑞|巴|越|泰|柬|法|意|以|韩))(?!.*((?i)(专线|手游|游戏|海外|(\b(GAME)\b))).*$"
@@ -37,7 +37,7 @@ OtherWise = NameRegex, FilterKey = "^(?=.*((?i)马|俄|印|德|土|阿|拿|菲|�
 # 手动策略组
 HK = select, 🇭🇰HongKong, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
 🇨🇳Taiwan = select, 🇨🇳Taiwan, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
-🇯🇵Japan = select, 🇯🇵Japan, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+JP = select, 🇯🇵Japan, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
 🇸🇬Singapore = select, 🇸🇬Singapore, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
 🇺🇸United States = select, 🇺🇸United States, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 OtherWise = select, OtherWise, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
