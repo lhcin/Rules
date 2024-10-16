@@ -67,15 +67,15 @@ https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/
 [Script]
 
 [Plugin]
-https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/LoonGallery.plugin, policy = 🇭🇰HongKong, enabled = true
+https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/LoonGallery.plugin, policy = HK, enabled = true
 https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/Block_HTTPDNS.plugin, enabled = true
 https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/BlockAdvertisers.plugin, enabled = true
 https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/QuickSearch.plugin, enabled = false
-https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/Prevent_DNS_Leaks.plugin, policy = 🇭🇰HongKong, enabled = true
+https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/Prevent_DNS_Leaks.plugin, policy = HK, enabled = true
 https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/Node_detection_tool.plugin, enabled = true
-https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/BoxJs.plugin, policy = 🇭🇰HongKong, enabled = true
-https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/Sub-Store.plugin, policy = 🇭🇰HongKong, enabled = true
-https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/Script-Hub.plugin, policy = 🇭🇰HongKong, enabled = true
+https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/BoxJs.plugin, policy = HK, enabled = true
+https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/Sub-Store.plugin, policy = HK, enabled = true
+https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Loon/Plugin/Script-Hub.plugin, policy = HK, enabled = true
 
 [Mitm]
 hostname = 
