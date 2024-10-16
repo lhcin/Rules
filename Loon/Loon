@@ -35,7 +35,7 @@ OtherWise = NameRegex, FilterKey = "^(?=.*((?i)马|俄|印|德|土|阿|拿|菲|�
 
 [Proxy Group]
 # 手动策略组
-🇭🇰HongKong = select, 🇭🇰HongKong, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+香港 = select, 🇭🇰HongKong, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
 🇨🇳Taiwan = select, 🇨🇳Taiwan, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
 🇯🇵Japan = select, 🇯🇵Japan, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
 🇸🇬Singapore = select, 🇸🇬Singapore, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
