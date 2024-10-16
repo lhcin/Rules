@@ -27,7 +27,7 @@ bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/
 
 [Remote Filter]
 🇭🇰HongKong = NameRegex, FilterKey = "^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)(专线|手游|游戏|海外|(\b(GAME)\b))).*$"
-🇨🇳Taiwan = NameRegex, FilterKey =  "^(?=.*((?i)🇨🇳|台湾|(\b(TW|Tai|Taiwan)\b)))(?!.*((?i)(专线|手游|游戏|海外|(\b(GAME)\b))).*$"
+🇨🇳Taiwan = NameRegex, FilterKey =  "^(?=.*((?i)🇨🇳|台湾|(\b(TW|Tai|Taiwan)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
 🇯🇵Japan = NameRegex, FilterKey = "^(?=.*((?i)🇯🇵|日本|(\b(JP|Japan)\b)))(?!.*((?i)(专线|手游|游戏|海外|(\b(GAME)\b))).*$"
 🇸🇬Singapore = NameRegex, FilterKey = "^(?=.*((?i)🇸🇬|新加坡|狮城|(\b(SG|Singapore)\b)))(?!.*((?i)(专线|手游|游戏|海外|(\b(GAME)\b))).*$"
 🇺🇸United States = NameRegex, FilterKey = "^(?=.*((?i)🇺🇸|美国|(\b(US|United States)\b)))(?!.*((?i)(专线|手游|游戏|海外|(\b(GAME)\b))).*$"
