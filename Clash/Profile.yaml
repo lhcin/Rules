@@ -76,12 +76,11 @@ proxy-groups:
     proxies:
       - 默认节点
       - HK 香港
-      - TW 台湾省
+      - TW 台湾
       - JP 日本
       - KR 韩国
       - US 美国
       - SG 新加坡
-      #      - TK 土耳其
       - 其它地区
       - 全部节点
       - 自动选择
@@ -97,22 +96,6 @@ proxy-groups:
       - KR 韩国
       - US 美国
       - SG 新加坡
-      - 其它地区
-      - 全部节点
-      - 自动选择
-      - 直连
-  - name: 其他外网
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Streaming!CN.png
-    type: select
-    proxies:
-      - 默认节点
-      - HK 香港
-      - TW 台湾省
-      - JP 日本
-      - KR 韩国
-      - US 美国
-      - SG 新加坡
-      #      - TK 土耳其
       - 其它地区
       - 全部节点
       - 自动选择
