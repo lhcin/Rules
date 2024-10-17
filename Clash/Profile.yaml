@@ -156,7 +156,7 @@ proxy-groups:
     interval: 120
     tolerance: 50
     lazy: true
-    filter: "(?i)^(?!.*(?:马|俄|印|德|土|阿|拿|菲|澳|爱|荷|瑞|巴|越|泰|柬|法|意|以|韩)).*"
+    filter: "(?i)(马|俄|印|德|土|阿|拿|菲|澳|爱|荷|瑞|巴|越|泰|柬|法|意|以|韩)"
   - name: 自动选择
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Auto.png
     type: url-test
