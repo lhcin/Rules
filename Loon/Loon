@@ -65,7 +65,6 @@ https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rewrite/Loon/BlockHTTPDNS/BlockHTTPDNS.plugin, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rewrite/Loon/AdvertisingLite/AdvertisingLite.plugin, policy=ADBlock, enabled=true
 https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/LoonGallery.plugin, policy=HK, enabled=true
-https://raw.githubusercontent.com/deezertidal/private/master/plugallery/weiboad.plugin, enabled=true
 https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/smzdm_remove_ads.plugin, enabled=true
 https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/JD_Price.plugin, enabled=true
 https://raw.githubusercontent.com/RuCu6/Loon/main/Plugins/amap.plugin, enabled=true
