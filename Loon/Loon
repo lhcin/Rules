@@ -35,10 +35,10 @@ OtherWise = NameRegex, FilterKey = (?=.*(马|俄|印|德|土|阿|拿|菲|澳|爱
 
 [Proxy Group]
 # Auto Proxy
-HK = = url-test, 🇭🇰HongKong, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
-TW = = url-test, 🇨🇳Taiwan, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
-JP = = url-test, 🇯🇵Japan, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
-SG = = url-test, 🇸🇬Singapore, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+HK = url-test, 🇭🇰HongKong, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+TW = url-test, 🇨🇳Taiwan, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
+JP = url-test, 🇯🇵Japan, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+SG = url-test, 🇸🇬Singapore, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
 # Manual Proxy
 US = select, 🇺🇸United States, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 OW = select, OtherWise, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final_1.png
