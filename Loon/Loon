@@ -40,10 +40,10 @@ TW = url-test, 🇨🇳Taiwan, interval = 60, tolerance = 50, img-url = https://
 JP = url-test, 🇯🇵Japan, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
 SG = url-test, 🇸🇬Singapore, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
 # Manual Proxy
+OS = select, DIRECT,🇭🇰HongKong, 🇺🇸United States, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+ADBlock = select, REJECT, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
 US = select, 🇺🇸United States, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 OW = select, OtherWise, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final_1.png
-OS = select, DIRECT,🇭🇰HongKong, 🇺🇸United States, OtherWise, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
-ADBlock = select, REJECT, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
 
 [Rule]
 FINAL, OS
