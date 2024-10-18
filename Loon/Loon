@@ -34,16 +34,16 @@ bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/
 OtherWise = NameRegex, FilterKey = (?=.*(马|俄|印|德|土|阿|拿|菲|澳|爱|荷|瑞|巴|越|泰|柬|法|意|以|韩))^((?!(专线|手游|游戏|海外|game)).)*$
 
 [Proxy Group]
-# Auto Proxy
-HK = url-test, 🇭🇰HongKong, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
-TW = url-test, 🇨🇳Taiwan, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
-JP = url-test, 🇯🇵Japan, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
-SG = url-test, 🇸🇬Singapore, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
 # Manual Proxy
 OS = select, DIRECT,🇭🇰HongKong, 🇺🇸United States, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
 ADBlock = select, REJECT, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
 US = select, 🇺🇸United States, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 OW = select, OtherWise, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final_1.png
+# Auto Proxy
+HK = url-test, 🇭🇰HongKong, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+TW = url-test, 🇨🇳Taiwan, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
+JP = url-test, 🇯🇵Japan, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+SG = url-test, 🇸🇬Singapore, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
 
 [Rule]
 FINAL, OS
