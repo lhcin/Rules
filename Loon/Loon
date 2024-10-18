@@ -68,7 +68,11 @@ https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/LoonGallery.p
 https://raw.githubusercontent.com/deezertidal/private/master/plugallery/weiboad.plugin, enabled=true
 https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/smzdm_remove_ads.plugin, enabled=true
 https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/JD_Price.plugin, enabled=true
-https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/JD_remove_ads.plugin, enabled=false
+https://raw.githubusercontent.com/RuCu6/Loon/main/Plugins/amap.plugin, enabled=true
+https://raw.githubusercontent.com/RuCu6/Loon/main/Plugins/zhihu.plugin, enabled=true
+https://raw.githubusercontent.com/RuCu6/Loon/main/Plugins/xiaohongshu.plugin, enabled=true
+https://raw.githubusercontent.com/RuCu6/Loon/main/Plugins/weibo.plugin, enabled=true
+https://raw.githubusercontent.com/RuCu6/Loon/main/Plugins/pinduoduo.plugin, enabled=true
 https://raw.githubusercontent.com/app2smile/rules/master/plugin/bilibili.plugin, enabled=true
 https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/RedPaper_remove_ads.plugin, enabled=true
 https://raw.githubusercontent.com/ssyit/Rules/refs/heads/main/Loon/Plugin/ip_check_tools.plugin, enabled=true
