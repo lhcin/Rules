@@ -62,17 +62,18 @@ https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master
 [Script]
 
 [Plugin]
+https://raw.githubusercontent.com/ClydeTime/BiliBili/master/modules/BiliBiliDailyBonus.plugin, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_daily.lnplugin, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rewrite/Loon/BlockHTTPDNS/BlockHTTPDNS.plugin, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rewrite/Loon/AdvertisingLite/AdvertisingLite.plugin, policy=ADBlock, enabled=true
-https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/LoonGallery.plugin, policy=HK, enabled=true
-https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/smzdm_remove_ads.plugin, enabled=true
-https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/JD_Price.plugin, enabled=true
-https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/RedPaper_remove_ads.plugin, enabled=true
-https://raw.githubusercontent.com/RuCu6/Loon/main/Plugins/amap.plugin, enabled=true
-https://raw.githubusercontent.com/RuCu6/Loon/main/Plugins/zhihu.plugin, enabled=true
-https://raw.githubusercontent.com/RuCu6/Loon/main/Plugins/xiaohongshu.plugin, enabled=true
-https://raw.githubusercontent.com/RuCu6/Loon/main/Plugins/weibo.plugin, enabled=true
-https://raw.githubusercontent.com/RuCu6/Loon/main/Plugins/pinduoduo.plugin, enabled=true
+https://kelee.one/Tool/Loon/Plugin/LoonGallery.plugin, policy=HK, enabled=true
+https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Loon/plugin/weibo.plugin, enabled=true
+https://kelee.one/Tool/Loon/Plugin/Amap_remove_ads.plugin, enabled=true
+https://kelee.one/Tool/Loon/Plugin/Zhihu_remove_ads.plugin, enabled=true
+https://kelee.one/Tool/Loon/Plugin/PinDuoDuo_remove_ads.plugin, enabled=true
+https://kelee.one/Tool/Loon/Plugin/smzdm_remove_ads.plugin, enabled=true
+https://kelee.one/Tool/Loon/Plugin/JD_Price.plugin, enabled=true
+https://kelee.one/Tool/Loon/Plugin/RedPaper_remove_ads.plugin, enabled=true
 https://raw.githubusercontent.com/app2smile/rules/master/plugin/bilibili.plugin, enabled=true
 https://raw.githubusercontent.com/ssyit/Rules/refs/heads/main/Loon/Plugin/ip_check_tools.plugin, enabled=true
 https://raw.githubusercontent.com/chavyleung/scripts/refs/heads/master/box/rewrite/boxjs.rewrite.loon.plugin, policy=HK, enabled=true
