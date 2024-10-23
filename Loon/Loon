@@ -68,11 +68,9 @@ https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rewrite/Loon/AdvertisingLite/AdvertisingLite.plugin, policy=ADBlock, enabled=true
 https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Loon/plugin/weibo.plugin, enabled=true
 https://raw.githubusercontent.com/app2smile/rules/master/plugin/bilibili.plugin, enabled=true
-https://kelee.one/Tool/Loon/Plugin/LoonGallery.plugin, enabled=true
 https://kelee.one/Tool/Loon/Plugin/Amap_remove_ads.plugin, enabled=true
-https://kelee.one/Tool/Loon/Plugin/Zhihu_remove_ads.plugin, enabled=true
-https://kelee.one/Tool/Loon/Plugin/PinDuoDuo_remove_ads.plugin, enabled=true
-https://kelee.one/Tool/Loon/Plugin/smzdm_remove_ads.plugin, enabled=true
+https://raw.githubusercontent.com/ssyit/Rules/refs/heads/main/Loon/Plugin/PDD.plugin, enabled=true
+https://raw.githubusercontent.com/ssyit/Rules/refs/heads/main/Loon/Plugin/ZDM.plugin, enabled=true
 https://raw.githubusercontent.com/ssyit/Rules/refs/heads/main/Loon/Plugin/jd_price.plugin, enabled=true
 https://raw.githubusercontent.com/ssyit/Rules/refs/heads/main/Loon/Plugin/rb.plugin, enabled=true
 https://raw.githubusercontent.com/ssyit/Rules/refs/heads/main/Loon/Plugin/ip_check_tools.plugin, enabled=true
