@@ -41,4 +41,4 @@ http-response ^https:\/\/api\.pinduoduo\.com\/api\/oak\/integration\/render url 
 
 
 [MITM]
-hostname = api.pinduoduo.com
+hostname = api.pinduoduo.com, api.yangkeduo.com
