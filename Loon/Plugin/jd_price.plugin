@@ -1,0 +1,6 @@
+# By 苍井灰灰[https://github.com/wf021325]
+# JD_Version=<12.4.3
+
+hostname = api.m.jd.com
+# 京东比价
+http-response ^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig) script-path = https://raw.githubusercontent.com/wf021325/qx/refs/heads/main/js/jd_price.js
