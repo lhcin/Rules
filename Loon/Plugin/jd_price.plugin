@@ -1,5 +1,9 @@
-# By 苍井灰灰[https://github.com/wf021325]
 # 要求JD_Version=<12.4.3
+#!name = 京东比价
+#!desc = 有时候东哥不和你做兄弟。
+#!author = 苍井灰灰[https://github.com/wf021325]
+#!icon =
+#!date =
 
 [Script]
 # 京东比价
