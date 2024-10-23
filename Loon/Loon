@@ -74,7 +74,7 @@ https://kelee.one/Tool/Loon/Plugin/Zhihu_remove_ads.plugin, enabled=true
 https://kelee.one/Tool/Loon/Plugin/PinDuoDuo_remove_ads.plugin, enabled=true
 https://kelee.one/Tool/Loon/Plugin/smzdm_remove_ads.plugin, enabled=true
 https://kelee.one/Tool/Loon/Plugin/JD_Price.plugin, enabled=true
-https://kelee.one/Tool/Loon/Plugin/RedPaper_remove_ads.plugin, enabled=true
+https://raw.githubusercontent.com/ssyit/Rules/refs/heads/main/Loon/Plugin/rb.plugin, enabled=true
 https://raw.githubusercontent.com/ssyit/Rules/refs/heads/main/Loon/Plugin/ip_check_tools.plugin, enabled=true
 https://raw.githubusercontent.com/chavyleung/scripts/refs/heads/master/box/rewrite/boxjs.rewrite.loon.plugin, policy=HK, enabled=true
 https://raw.githubusercontent.com/sub-store-org/Sub-Store/refs/heads/master/config/Loon.plugin, policy=HK, enabled=true
