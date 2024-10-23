@@ -7,10 +7,6 @@
 [Rule]
 AND, ((URL-REGEX, ^http:\/\/((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(http:\/\/[\d\.]+)?\/d4?\?), (USER-AGENT, *com.xunmeng.pinduoduo*)), REJECT
 AND, ((URL-REGEX, ^http:\/\/\[((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))\]\/d4\?), (USER-AGENT, *com.xunmeng.pinduoduo*)), REJECT
-
-# DOMAIN, apm-a.pinduoduo.com, REJECT
-# DOMAIN, apm.pinduoduo.com, REJECT
-# DOMAIN, m.pinduoduo.net, REJECT
 DOMAIN, ta-a.pinduoduo.com, REJECT
 DOMAIN, ta.pinduoduo.com, REJECT
 DOMAIN, th-a.pinduoduo.com, REJECT
@@ -36,9 +32,6 @@ http-response ^https:\/\/api\.pinduoduo\.com\/search url script-response-body ht
 http-response ^https:\/\/api\.pinduoduo\.com\/api\/philo\/personal\/hub url script-response-body https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Pinduoduo.js, requires-body = true, tag = 精简首页
 http-response ^https:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub url script-response-body https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Pinduoduo.js, requires-body = true, tag = 精简首页
 http-response ^https:\/\/api\.pinduoduo\.com\/api\/oak\/integration\/render url script-response-body https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Pinduoduo.js, requires-body = true, tag = 精简首页
-
-
-
 
 [MITM]
 hostname = api.pinduoduo.com, api.yangkeduo.com
