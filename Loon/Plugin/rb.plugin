@@ -46,3 +46,6 @@ http-response ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v1\/note\/(?:imagefe
 
 [MITM]
 hostname = edith.xiaohongshu.com, www.xiaohongshu.com
+
+[MITM]
+hostname = edith.xiaohongshu.com, www.xiaohongshu.com
