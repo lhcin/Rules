@@ -2,10 +2,9 @@
 #!desc = Loon节点查询工具，节点长按选择测试。
 #!author = 奶思
 #!tag = 节点检测
-#!raw-url=https://github.com/fmz200/wool_scripts/raw/main/Loon/script/tools.scripts
-#!system = 
-#!system_version = 
 
 [Script]
-generic script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Node_detection_tool/LocationDetection.js, timeout = 10, tag = 地理位置查询, img-url = location.circle.system
-generic script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Node_detection_tool/NodeUnlockDetection.js, timeout = 20, tag = 节点解锁查询, img-url = play.circle.system
+# generic script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Node_detection_tool/LocationDetection.js, timeout = 10, tag = 地理位置查询, img-url = location.circle.system
+# generic script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Node_detection_tool/NodeUnlockDetection.js, timeout = 20, tag = 节点解锁查询, img-url = play.circle.system
+generic script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/tools/LocationDetection.js, timeout = 10, tag = 地理位置查询, img-url = location.circle.system
+generic script-path = https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/tools/NodeUnlockDetection.js, timeout = 20, tag = 节点解锁查询, img-url = play.circle.system
