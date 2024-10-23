@@ -1,6 +1,6 @@
 #!name = 节点查询工具
 #!desc = Loon节点查询工具，节点长按选择测试。
-#!author = 奶思
+#!author = 奶思, @getsomecat
 #!tag = 节点检测
 
 [Script]
