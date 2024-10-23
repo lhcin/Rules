@@ -72,7 +72,7 @@ https://raw.githubusercontent.com/ssyit/Rules/refs/heads/main/Loon/Plugin/Amap.p
 https://raw.githubusercontent.com/ssyit/Rules/refs/heads/main/Loon/Plugin/PDD.plugin, enabled=true
 https://raw.githubusercontent.com/ssyit/Rules/refs/heads/main/Loon/Plugin/ZDM.plugin, enabled=true
 https://raw.githubusercontent.com/ssyit/Rules/refs/heads/main/Loon/Plugin/jd_price.plugin, enabled=true
-https://raw.githubusercontent.com/ssyit/Rules/refs/heads/main/Loon/Plugin/rb.plugin, enabled=true
+https://raw.githubusercontent.com/ssyit/Rules/refs/heads/main/Loon/Plugin/RB.plugin, enabled=true
 https://raw.githubusercontent.com/ssyit/Rules/refs/heads/main/Loon/Plugin/ip_check_tools.plugin, enabled=true
 https://raw.githubusercontent.com/chavyleung/scripts/refs/heads/master/box/rewrite/boxjs.rewrite.loon.plugin, policy=HK, enabled=true
 https://raw.githubusercontent.com/sub-store-org/Sub-Store/refs/heads/master/config/Loon.plugin, policy=HK, enabled=true
