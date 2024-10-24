@@ -94,7 +94,6 @@ proxy-groups:
       - 默认节点
       - HK 香港
       - US 美国
-      
   # 基于地区分组
   - name: HK 香港
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
