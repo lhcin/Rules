@@ -271,7 +271,7 @@ rules:
   - RULE-SET, InternationalDownloadCDN, 境外下载
   - RULE-SET, AI, AI
 #   - RULE-SET, TestFlight, TestFlight
-  - RULE-SET, iCloudChina, DIRECT
+#   - RULE-SET, iCloudChina, DIRECT
 #  - RULE-SET, ApplePushNotificationService, DIRECT
 #   - RULE-SET, AppleSoftwareUpdates, DIRECT
 #   - RULE-SET, AppleID, Apple ID
