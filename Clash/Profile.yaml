@@ -80,7 +80,7 @@ proxy-groups:
       - HK HK
       - US US
   - name: Github
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Github.png
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/GitHub.png
     type: select
     proxies:
       - Default_Proxy
