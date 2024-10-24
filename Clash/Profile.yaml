@@ -2,15 +2,6 @@ proxy-providers:
   Provider-1:
     interval: 600
     url: http://sub.store/download/Provider-1?target=Stash
-  Provider-2:
-    interval: 600
-    url: http://sub.store/download/Provider-2?target=Stash
-  Provider-3:
-    interval: 600
-    url: http://sub.store/download/Provider-3?target=Stash
-  Provider-4:
-    interval: 600
-    url: http://sub.store/download/Provider-4?target=Stash
 mode: rule
 dns:
   default-nameserver:
