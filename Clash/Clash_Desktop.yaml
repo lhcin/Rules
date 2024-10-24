@@ -128,7 +128,7 @@ proxy-groups:
   - {name: Proxy_Per, type: select, include-all-providers: true, filter: *FilterAll, proxies: [HK, US, JP, SG, TW]}
 #   - {name: 境外下载, type: select, include-all-providers: true, filter: *FilterAll, proxies: [DIRECT]}
   - {name: Google, type: select, proxies: [US, HK]}
-  - {name: Google, type: select, proxies: [HK, US]}
+  - {name: Github, type: select, proxies: [HK, US]}
   - {name: AI, type: select, include-all-providers: true, filter: *FilterAll}
 #   - {name: TikTok, type: select, include-all-providers: true, filter: *FilterAll}
   - {name: Telegram, type: select, proxies: [HK, US]}
