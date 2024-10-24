@@ -129,7 +129,7 @@ proxy-groups:
 #   - {name: 境外下载, type: select, include-all-providers: true, filter: *FilterAll, proxies: [DIRECT]}
   - {name: Google, type: select, proxies: [US, HK]}
   - {name: Github, type: select, proxies: [HK, US]}
-  - {name: AI, type: select, include-all-providers: true, filter: *FilterAll}
+  - {name: AI, type: select, include-all-providers: true, filter: *FilterAll, proxies: [HK, US, SG, TW]}
 #   - {name: TikTok, type: select, include-all-providers: true, filter: *FilterAll}
   - {name: Telegram, type: select, proxies: [HK, US]}
 #   - {name: App Store, type: select, proxies: [DIRECT, HK, TW, JP, SG, US]}
