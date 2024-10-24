@@ -125,7 +125,7 @@ RuleProviders: &RuleProviders {type: http, behavior: classical, interval: 3600, 
 # 策略组
 proxy-groups: 
 #   - {name: 游戏选择, type: select, include-all-providers: true, filter: *FilterGame, proxies: [DIRECT, 全球选择]}
-  - {name: Proxy, type: select, include-all-providers: true, filter: *FilterAll, proxies: [HK, US]}
+  - {name: Proxy, type: select, include-all-providers: true, filter: *FilterAll}
 #   - {name: 境外下载, type: select, include-all-providers: true, filter: *FilterAll, proxies: [DIRECT]}
   - {name: Google, type: select, proxies: [US, HK]}
   - {name: Google, type: select, proxies: [HK, US]}
@@ -272,7 +272,7 @@ rule-providers:
 rules:
   - RULE-SET, Lan, DIRECT
   - RULE-SET, Direct, DIRECT
-  - RULE-SET, Proxy, 全球选择
+  - RULE-SET, Proxy, Proxy
   - RULE-SET, ChinaDownloadCDN, DIRECT
 #   - RULE-SET, InternationalDownloadCDN, 境外下载
   - RULE-SET, AI, AI
