@@ -151,7 +151,7 @@ proxy-groups:
   - {name: ⏱香港时延优选策略组, <<: *UrlTest, filter: *FilterHK}
   - {name: ⏱台湾时延优选策略组, <<: *UrlTest, filter: *FilterTW}
   - {name: ⏱日本时延优选策略组, <<: *UrlTest, filter: *FilterJP}
-  - {name: ⏱韩国时延优选策略组, <<: *UrlTest, filter: *FilterKR}
+#   - {name: ⏱韩国时延优选策略组, <<: *UrlTest, filter: *FilterKR}
   - {name: ⏱新加坡时延优选策略组, <<: *UrlTest, filter: *FilterSG}
   - {name: ⏱美国时延优选策略组, <<: *UrlTest, filter: *FilterUS}
 #   - {name: ⏱英国时延优选策略组, <<: *UrlTest, filter: *FilterUK}
