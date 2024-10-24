@@ -77,12 +77,10 @@ dns:
   default-nameserver:
     - 223.5.5.5
     - 202.96.128.86
+    - system
   nameserver:
     - https://223.5.5.5/dns-query#h3=true
-    - https://223.6.6.6/dns-query#h3=true
-
-# 锚点 - 节点订阅的参数 [每小时更新一次订阅节点，每 6 秒一次健康检查]
-NodeParam: &NodeParam {type: http, interval: 3600, health-check: {enable: true, url: 'http://detectportal.firefox.com/success.txt', interval: 6}}
+    - https://202.96.128.86/dns-query#h3=true
 
 # 锚点 - 节点订阅
 proxy-providers: 
@@ -99,87 +97,149 @@ proxy-providers:
     override:
       additional-prefix: "[机场名称2] " # 为订阅节点添加机场名称前缀
 
-# 锚点 - 节点筛选组
-FilterHK: &FilterHK '^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-FilterTW: &FilterTW '^(?=.*((?i)🇹🇼|台湾|(\b(TW|Tai|Taiwan)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-FilterJP: &FilterJP '^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|Japan)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-# FilterKR: &FilterKR '^(?=.*((?i)🇰🇷|韩国|韓|首尔|(\b(KR|Korea)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-FilterSG: &FilterSG '^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-FilterUS: &FilterUS '^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|United States)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-# FilterUK: &FilterUK '^(?=.*((?i)🇬🇧|英国|伦敦|(\b(UK|United Kingdom)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-# FilterFR: &FilterFR '^(?=.*((?i)🇫🇷|法国|(\b(FR|France)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-# FilterDE: &FilterDE '^(?=.*((?i)🇩🇪|德国|(\b(DE|Germany)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-# FilterGame: &FilterGame '^(?=.*((?i)游戏|🎮|(\b(GAME)\b)))(?!.*((?i)回国|校园)).*$'
-FilterAll: &FilterAll '^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author)\b|(\d{4}-\d{2}-\d{2}|\d+G)))).*$'
-
-# 策略组参数锚点
-# 锚点 - 时延优选参数 [每 6 秒一次惰性健康检查，容差 20ms，时延超过 2 秒判定为失败，失败 3 次则自动触发健康检查]
-UrlTest: &UrlTest {type: url-test, interval: 6, tolerance: 20, lazy: true, url: 'http://detectportal.firefox.com/success.txt', disable-udp: false, timeout: 2000, max-failed-times: 3, hidden: true, include-all-providers: true}
-# 锚点 - 故障转移参数 [每 6 秒一次惰性健康检查，时延超过 2 秒判定为失败，失败 3 次则自动触发健康检查]
-FallBack: &FallBack {type: fallback, interval: 6, lazy: true, url: 'http://detectportal.firefox.com/success.txt', disable-udp: false, timeout: 2000, max-failed-times: 3, hidden: true, include-all-providers: true}
-# 锚点 - 负载均衡参数 [每 6 秒一次惰性健康检查，时延超过 2 秒判定为失败，失败 3 次则自动触发健康检查]
-LoadBalance: &LoadBalance {type: load-balance, interval: 6, lazy: true, url: 'http://detectportal.firefox.com/success.txt', disable-udp: false, strategy: consistent-hashing, timeout: 2000, max-failed-times: 3, hidden: true, include-all-providers: true}
-# 锚点 - 规则参数 [每小时更新一次订阅规则，更新规则时使用直连策略]
-RuleProviders: &RuleProviders {type: http, behavior: classical, interval: 3600, format: yaml, proxy: DIRECT}
-
-# 策略组
-proxy-groups: 
-#   - {name: 游戏选择, type: select, include-all-providers: true, filter: *FilterGame, proxies: [DIRECT, 全球选择]}
-  - {name: Proxy_Per, type: select, include-all-providers: true, filter: *FilterAll, proxies: [HK, US, JP, SG, TW]}
-#   - {name: 境外下载, type: select, include-all-providers: true, filter: *FilterAll, proxies: [DIRECT]}
-  - {name: Google, type: select, proxies: [US, HK]}
-  - {name: Github, type: select, proxies: [HK, US]}
-  - {name: AI, type: select, include-all-providers: true, filter: *FilterAll, proxies: [HK, US, SG, TW]}
-#   - {name: TikTok, type: select, include-all-providers: true, filter: *FilterAll}
-  - {name: Telegram, type: select, proxies: [HK, US]}
-#   - {name: App Store, type: select, proxies: [DIRECT, HK, TW, JP, SG, US]}
-#   - {name: Apple ID, type: select, proxies: [DIRECT, HK, TW, JP, SG, US]}
-#   - {name: TestFlight, type: select, proxies: [DIRECT, HK, TW, JP, SG, US]}
-  - {name: Microsoft, type: select, proxies: [DIRECT, HK, US]}
-  - {name: Others, type: select, proxies: [DIRECT, HK, US]}
-
-  - {name: HK, type: select, proxies: [⏱香港时延优选策略组, 🚥香港故障转移策略组, 🎛香港负载均衡策略组]}
-  - {name: TW, type: select, proxies: [⏱台湾时延优选策略组, 🚥台湾故障转移策略组, 🎛台湾负载均衡策略组]}
-  - {name: JP, type: select, proxies: [⏱日本时延优选策略组, 🚥日本故障转移策略组, 🎛日本负载均衡策略组]}
-#   - {name: KR, type: select, proxies: [⏱韩国时延优选策略组, 🚥韩国故障转移策略组, 🎛韩国负载均衡策略组]}
-  - {name: SG, type: select, proxies: [⏱新加坡时延优选策略组, 🚥新加坡故障转移策略组, 🎛新加坡负载均衡策略组]}
-  - {name: US, type: select, proxies: [⏱美国时延优选策略组, 🚥美国故障转移策略组, 🎛美国负载均衡策略组]}
-#   - {name: UK, type: select, proxies: [⏱英国时延优选策略组, 🚥英国故障转移策略组, 🎛英国负载均衡策略组]}
-#   - {name: FR, type: select, proxies: [⏱法国时延优选策略组, 🚥法国故障转移策略组, 🎛法国负载均衡策略组]}
-#   - {name: GR, type: select, proxies: [⏱德国时延优选策略组, 🚥德国故障转移策略组, 🎛德国负载均衡策略组]}
-
-# 时延优选策略组
-  - {name: ⏱香港时延优选策略组, <<: *UrlTest, filter: *FilterHK}
-  - {name: ⏱台湾时延优选策略组, <<: *UrlTest, filter: *FilterTW}
-  - {name: ⏱日本时延优选策略组, <<: *UrlTest, filter: *FilterJP}
-#   - {name: ⏱韩国时延优选策略组, <<: *UrlTest, filter: *FilterKR}
-  - {name: ⏱新加坡时延优选策略组, <<: *UrlTest, filter: *FilterSG}
-  - {name: ⏱美国时延优选策略组, <<: *UrlTest, filter: *FilterUS}
-#   - {name: ⏱英国时延优选策略组, <<: *UrlTest, filter: *FilterUK}
-#   - {name: ⏱法国时延优选策略组, <<: *UrlTest, filter: *FilterFR}
-#   - {name: ⏱德国时延优选策略组, <<: *UrlTest, filter: *FilterDE}
-
-# 故障转移策略组
-  - {name: 🚥香港故障转移策略组, <<: *FallBack, filter: *FilterHK}
-  - {name: 🚥台湾故障转移策略组, <<: *FallBack, filter: *FilterTW}
-  - {name: 🚥日本故障转移策略组, <<: *FallBack, filter: *FilterJP}
-#   - {name: 🚥韩国故障转移策略组, <<: *FallBack, filter: *FilterKR}
-  - {name: 🚥新加坡故障转移策略组, <<: *FallBack, filter: *FilterSG}
-  - {name: 🚥美国故障转移策略组, <<: *FallBack, filter: *FilterUS}
-#   - {name: 🚥英国故障转移策略组, <<: *FallBack, filter: *FilterUK}
-#   - {name: 🚥法国故障转移策略组, <<: *FallBack, filter: *FilterFR}
-#   - {name: 🚥德国故障转移策略组, <<: *FallBack, filter: *FilterDE}
-
-# 负载均衡策略组
-  - {name: 🎛香港负载均衡策略组, <<: *LoadBalance, filter: *FilterHK}
-  - {name: 🎛台湾负载均衡策略组, <<: *LoadBalance, filter: *FilterTW}
-  - {name: 🎛日本负载均衡策略组, <<: *LoadBalance, filter: *FilterJP}
-#   - {name: 🎛韩国负载均衡策略组, <<: *LoadBalance, filter: *FilterKR}
-  - {name: 🎛新加坡负载均衡策略组, <<: *LoadBalance, filter: *FilterSG}
-  - {name: 🎛美国负载均衡策略组, <<: *LoadBalance, filter: *FilterUS}
-#   - {name: 🎛英国负载均衡策略组, <<: *LoadBalance, filter: *FilterUK}
-#   - {name: 🎛法国负载均衡策略组, <<: *LoadBalance, filter: *FilterFR}
-#   - {name: 🎛德国负载均衡策略组, <<: *LoadBalance, filter: *FilterDE}
+  - name: 默认节点
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
+    type: select
+    proxies:
+      - Auto
+      - 直连
+      - HK 香港
+      - TW 台湾
+      - JP 日本
+      - KR 韩国
+      - US 美国
+      - SG 新加坡
+      - Other_Regions
+      - All_Proxy
+  # 功能分组
+  - name: OpenAI
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
+    type: select
+    proxies:
+      - 默认节点
+      - HK 香港
+      - TW 台湾
+      - JP 日本
+      - KR 韩国
+      - US 美国
+      - SG 新加坡
+      - Other_Regions
+      - All_Proxy
+      - Auto
+      - 直连
+  - name: Google
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png
+    type: select
+    proxies:
+      - 默认节点
+      - HK 香港
+      - TW 台湾
+      - JP 日本
+      - KR 韩国
+      - US 美国
+      - SG 新加坡
+      - Other_Regions
+      - All_Proxy
+      - Auto
+      - 直连
+  - name: Github
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Github.png
+    type: select
+    proxies:
+      - 默认节点
+      - HK 香港
+      - TW 台湾
+      - JP 日本
+      - KR 韩国
+      - US 美国
+      - SG 新加坡
+      - Other_Regions
+      - All_Proxy
+      - Auto
+      - 直连
+  - name: Telegram
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Telegram.png
+    type: select
+    proxies:
+      - 默认节点
+      - HK 香港
+      - TW 台湾
+      - JP 日本
+      - KR 韩国
+      - US 美国
+      - SG 新加坡
+      - Other_Regions
+      - All_Proxy
+      - Auto
+      - 直连
+  # 基于地区分组
+  - name: HK 香港
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
+    type: url-test
+    include-all: true
+    interval: 120
+    tolerance: 50
+    lazy: true
+    filter: "(?i)(澳门|🇲🇴|港|🇭🇰|hk|hong)"
+  - name: TW 台湾
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China.png
+    type: url-test
+    include-all: true
+    interval: 120
+    tolerance: 50
+    lazy: true
+    filter: "(?i)(台|🇹🇼|湾|tw|taiwan)"
+  - name: JP 日本
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
+    type: url-test
+    include-all: true
+    interval: 120
+    tolerance: 50
+    lazy: true
+    filter: "(?i)(日|🇯🇵|东京|大阪|jp|japan)"
+  - name: KR 韩国
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Korea.png
+    type: url-test
+    include-all: true
+    interval: 120
+    tolerance: 50
+    lazy: true
+    filter: "(?i)(韩|🇰🇷|kr|korea)"
+  - name: US 美国
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
+    type: url-test
+    include-all: true
+    interval: 120
+    tolerance: 50
+    lazy: true
+    filter: "(?i)(美|🇺🇲|us|states|america)"
+  - name: SG 新加坡
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
+    type: url-test
+    include-all: true
+    interval: 120
+    tolerance: 50
+    lazy: true
+    filter: "(?i)(新加坡|坡|狮城|🇸🇬|sg|singapore)"
+  - name: Other_Regions
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/World_Map.png
+    type: url-test
+    include-all: true
+    interval: 120
+    tolerance: 50
+    lazy: true
+    filter: "(?i)(马|俄|印|德|土|阿|拿|菲|澳|爱|荷|瑞|巴|越|泰|柬|法|意|以|韩)"
+  - name: Auto
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Auto.png
+    type: url-test
+    include-all: true
+    interval: 120
+    tolerance: 50
+    lazy: true
+  - name: All_Proxy
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Global.png
+    type: select
+    include-all: true
 
 # 订阅规则
 rule-providers:
@@ -272,17 +332,17 @@ rule-providers:
 rules:
   - RULE-SET, Lan, DIRECT
   - RULE-SET, Direct, DIRECT
-  - RULE-SET, Proxy, Proxy_Per
+  - RULE-SET, Proxy, All_Proxy
   - RULE-SET, ChinaDownloadCDN, DIRECT
 #   - RULE-SET, InternationalDownloadCDN, 境外下载
-  - RULE-SET, AI, AI
+  - RULE-SET, AI, OpenAI
 #   - RULE-SET, TestFlight, TestFlight
 #   - RULE-SET, iCloudChina, DIRECT
 #   - RULE-SET, ApplePushNotificationService, DIRECT
 #   - RULE-SET, AppleSoftwareUpdates, DIRECT
 #   - RULE-SET, AppleID, Apple ID
 #   - RULE-SET, AppStore, App Store
-  - RULE-SET, Microsoft, Microsoft
+#   - RULE-SET, Microsoft, Microsoft
   - RULE-SET, Google, Google
   - RULE-SET, Github, Github
   - RULE-SET, Telegram, Telegram
