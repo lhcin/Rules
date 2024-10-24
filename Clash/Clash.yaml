@@ -97,6 +97,7 @@ proxy-providers:
     override:
       additional-prefix: "[机场名称2] " # 为订阅节点添加机场名称前缀
 
+proxy-groups:
   - name: 默认节点
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
     type: select
