@@ -12,10 +12,10 @@ dns:
   nameserver:
     - https://114.114.114.114/dns-query
     - https://223.5.5.5/dns-query
-# proxies:
-#   - name: direct
-#     type: direct
-#     udp: true
+proxies:
+  - name: direct
+    type: DIRECT
+    udp: true
 proxy-groups:
   - name: Default_Proxy
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
