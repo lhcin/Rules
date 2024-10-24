@@ -209,7 +209,7 @@ proxy-groups:
     filter: "(?i)(新加坡|坡|狮城|🇸🇬|sg|singapore)"
   - name: Other_Regions
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/World_Map.png
-    type: url-test
+    type: select
     include-all: true
     interval: 120
     tolerance: 50
@@ -334,4 +334,4 @@ rules:
   - RULE-SET, Telegram, Telegram
   - RULE-SET, ESET_China, DIRECT
   - GEOIP, CN, DIRECT
-  - MATCH, Others
+  - MATCH, Other_Regions
