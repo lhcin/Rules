@@ -30,15 +30,15 @@ proxy-groups:
     type: select
     proxies:
       - 自动选择
-      - 直连
+#       - 直连
       - HK 香港
       - TW 台湾
       - JP 日本
       - KR 韩国
       - US 美国
       - SG 新加坡
-      - 其它地区
-      - 全部节点
+      - Other_Regions
+      - All_Proxy
   # 功能分组
   - name: OpenAI
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
@@ -51,8 +51,8 @@ proxy-groups:
       - KR 韩国
       - US 美国
       - SG 新加坡
-      - 其它地区
-      - 全部节点
+      - Other_Regions
+      - All_Proxy
       - 自动选择
       - 直连
   - name: Google
@@ -65,11 +65,6 @@ proxy-groups:
       - JP 日本
       - KR 韩国
       - US 美国
-      - SG 新加坡
-      - 其它地区
-      - 全部节点
-      - 自动选择
-      - 直连
   - name: Apple
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Apple.png
     type: select
@@ -81,8 +76,8 @@ proxy-groups:
       - KR 韩国
       - US 美国
       - SG 新加坡
-      - 其它地区
-      - 全部节点
+      - Other_Regions
+      - All_Proxy
       - 自动选择
       - 直连
   - name: Telegram
@@ -91,15 +86,14 @@ proxy-groups:
     proxies:
       - 默认节点
       - HK 香港
-      - TW 台湾
-      - JP 日本
-      - KR 韩国
       - US 美国
-      - SG 新加坡
-      - 其它地区
-      - 全部节点
-      - 自动选择
-      - 直连
+   - name: Github
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Github.png
+    type: select
+    proxies:
+      - 默认节点
+      - HK 香港
+      - US 美国
   # 基于地区分组
   - name: HK 香港
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
@@ -149,7 +143,7 @@ proxy-groups:
     tolerance: 50
     lazy: true
     filter: "(?i)(新加坡|坡|狮城|🇸🇬|sg|singapore)"
-  - name: 其它地区
+  - name: Other_Regions
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/World_Map.png
     type: url-test
     include-all: true
@@ -164,7 +158,7 @@ proxy-groups:
     interval: 120
     tolerance: 50
     lazy: true
-  - name: 全部节点
+  - name: All_Proxy
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Global.png
     type: select
     include-all: true
@@ -172,11 +166,12 @@ rules:
   - SCRIPT,quic,REJECT
   - RULE-SET,category-ai-chat-!cn,OpenAI
   - RULE-SET,telegram,Telegram
+  - RULE-SET,github,Github
   - RULE-SET,google-cn,Google
   - RULE-SET,apple-cn,Apple
-  - GEOIP,LAN,直连,no-resolve
-  - GEOIP,CN,国内网站,no-resolve
-  - MATCH,其他外网
+  - GEOIP,LAN,direct,no-resolve
+  - GEOIP,CN,direct,no-resolve
+  - MATCH,direct
 rule-providers:
   category-ai-chat-!cn:
     type: http
@@ -190,6 +185,12 @@ rule-providers:
     behavior: domain
     format: text
     url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.list
+  github:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: text
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/github.list
   google-cn:
     type: http
     interval: 86400
