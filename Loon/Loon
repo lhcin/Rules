@@ -36,7 +36,7 @@ OtherWise = NameRegex, FilterKey = (?=.*(马|俄|印|德|土|阿|拿|菲|澳|爱
 [Proxy Group]
 # Manual Proxy
 FN = select, DIRECT,🇭🇰HongKong, 🇺🇸United States, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
-OS = select, DIRECT,🇭🇰HongKong, 🇺🇸United States, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final_1.png
+OS = select, DIRECT,🇭🇰HongKong, 🇺🇸United States, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Filter.png
 ADBlock = select, REJECT, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
 US = select, 🇺🇸United States, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 OW = select, OtherWise, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final_1.png
