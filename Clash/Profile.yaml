@@ -7,7 +7,7 @@ mode: rule
 dns:
   default-nameserver:
     - 223.5.5.5
-    - 114.114.114.114
+    - 202.96.128.86
     - system
   nameserver:
     - https://223.5.5.5/dns-query
@@ -21,73 +21,71 @@ proxy-groups:
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
     type: select
     proxies:
-      - Auto
-#       - direct
-      - HK HK
-      - CN TW
-      - JP JP
-      - KR KR
-      - US US
-      - SG SG
+      - HK
+      - TW
+      - JP
+      - KR
+      - US
+      - SG
       - Other_Regions
       - All_Proxy
+  - name: additional_Proxy
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
+    type: select
+    proxies:
+      - direct
+      - Default_Proxy
+      - Other_Regions   
   # 功能分组
   - name: OpenAI
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
     type: select
     proxies:
       - Default_Proxy
-      - HK HK
-      - CN TW
-      - JP JP
-      - KR KR
-      - US US
-      - SG SG
+      - HK
+      - TW
+      - JP
+      - KR
+      - US
+      - SG
       - Other_Regions
       - All_Proxy
-      - Auto
-      - direct
   - name: Google
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png
     type: select
     proxies:
       - Default_Proxy
-      - HK HK
-      - CN TW
-      - JP JP
-      - KR KR
-      - US US
+      - HK
+      - TW
+      - JP
+      - US
   - name: Apple
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Apple.png
     type: select
     proxies:
+      - direct
       - Default_Proxy
-      - HK HK
-      - CN TW
-      - JP JP
-      - KR KR
-      - US US
-      - SG SG
+      - HK
+      - JP
+      - US
       - Other_Regions
       - All_Proxy
-      - Auto
-      - direct
   - name: Telegram
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Telegram.png
     type: select
     proxies:
       - Default_Proxy
-      - HK HK
-      - US US
+      - HK
+      - US
   - name: Github
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/GitHub.png
     type: select
     proxies:
       - Default_Proxy
-      - HK HK
-      - US US
+      - HK
+      - US
   # 基于地区分组
-  - name: HK HK
+  - name: HK
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
     type: url-test
     include-all: true
@@ -95,7 +93,7 @@ proxy-groups:
     tolerance: 50
     lazy: true
     filter: "(?i)(澳门|🇲🇴|港|🇭🇰|hk|hong)"
-  - name: CN TW
+  - name: TW
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China.png
     type: url-test
     include-all: true
@@ -103,7 +101,7 @@ proxy-groups:
     tolerance: 50
     lazy: true
     filter: "(?i)(台|🇹🇼|湾|CN|taiwan)"
-  - name: JP JP
+  - name: JP
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
     type: url-test
     include-all: true
@@ -111,15 +109,15 @@ proxy-groups:
     tolerance: 50
     lazy: true
     filter: "(?i)(日|🇯🇵|东京|大阪|jp|japan)"
-  - name: KR KR
+  - name: KR
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Korea.png
     type: url-test
     include-all: true
     interval: 120
     tolerance: 50
     lazy: true
-    filter: "(?i)(韩|🇰🇷|kr|korea)"
-  - name: US US
+    filter: "(?i)(韩|🇰🇷|KR|korea)"
+  - name: US
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
     type: url-test
     include-all: true
@@ -127,7 +125,7 @@ proxy-groups:
     tolerance: 50
     lazy: true
     filter: "(?i)(美|🇺🇲|us|states|america)"
-  - name: SG SG
+  - name: SG
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
     type: url-test
     include-all: true
@@ -162,7 +160,7 @@ rules:
   - RULE-SET,apple-cn,Apple
   - GEOIP,LAN,direct,no-resolve
   - GEOIP,CN,direct,no-resolve
-  - MATCH,direct
+  - MATCH,additional_Proxy
 rule-providers:
   category-ai-chat-!cn:
     type: http
