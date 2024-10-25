@@ -28,7 +28,7 @@ proxy-groups:
       - US
       - SG
       - Other_Regions
-      - All_Proxy
+#       - All_Proxy
   - name: additional_Proxy
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Auto.png
     type: select
@@ -49,7 +49,7 @@ proxy-groups:
       - US
       - SG
       - Other_Regions
-      - All_Proxy
+ #      - All_Proxy
   - name: Google
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png
     type: select
@@ -69,7 +69,7 @@ proxy-groups:
       - JP
       - US
       - Other_Regions
-      - All_Proxy
+#       - All_Proxy
   - name: Telegram
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Telegram.png
     type: select
@@ -148,10 +148,10 @@ proxy-groups:
 #     interval: 120
 #     tolerance: 50
 #     lazy: true
-  - name: All_Proxy
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Global.png
-    type: select
-    include-all: true
+#   - name: All_Proxy
+#　   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Global.png
+#     type: select
+#     include-all: true
 rules:
   - RULE-SET,category-ai-chat-!cn,OpenAI
   - RULE-SET,telegram,Telegram
