@@ -35,7 +35,8 @@ OtherWise = NameRegex, FilterKey = (?=.*(马|俄|印|德|土|阿|拿|菲|澳|爱
 
 [Proxy Group]
 # Manual Proxy
-OS = select, DIRECT,🇭🇰HongKong, 🇺🇸United States, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+FN = select, DIRECT,🇭🇰HongKong, 🇺🇸United States, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+OS = select, DIRECT,🇭🇰HongKong, 🇺🇸United States, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final_1.png
 ADBlock = select, REJECT, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
 US = select, 🇺🇸United States, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 OW = select, OtherWise, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final_1.png
@@ -46,15 +47,15 @@ JP = url-test, 🇯🇵Japan, interval = 60, tolerance = 50, img-url = https://r
 SG = url-test, 🇸🇬Singapore, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
 
 [Rule]
-FINAL, OS
+FINAL, FN
 
 [Remote Rule]
 # https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/China/China.list, policy = DIRECT, tag = China, enabled = true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/ProxyLite/ProxyLite.list, policy = HK, tag = Proxy, enabled = true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/GitHub/GitHub.list, policy = HK, tag = GitHub, enabled = true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/YouTube/YouTube.list, policy = HK, tag = GitHub, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/ProxyLite/ProxyLite.list, policy = OS, tag = Proxy, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/GitHub/GitHub.list, policy = OS, tag = GitHub, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/YouTube/YouTube.list, policy = OS, tag = GitHub, enabled = true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Google/Google.list, policy = US, tag = Google, enabled = true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/OneDrive/OneDrive.list, policy = HK, tag = Onedrive, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/OneDrive/OneDrive.list, policy = OS, tag = Onedrive, enabled = true
 
 [Host]
 
