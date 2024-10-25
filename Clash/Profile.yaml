@@ -37,19 +37,6 @@ proxy-groups:
       - Default_Proxy
       - Other_Regions   
   # 功能分组
-  - name: OpenAI
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
-    type: select
-    proxies:
-      - Default_Proxy
-      - HK
-      - TW
-      - JP
-      - KR
-      - US
-      - SG
-      - Other_Regions
- #      - All_Proxy
   - name: Google
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png
     type: select
@@ -84,6 +71,19 @@ proxy-groups:
       - Default_Proxy
       - HK
       - US
+  - name: OpenAI
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
+    type: select
+    proxies:
+      - Default_Proxy
+      - HK
+      - TW
+      - JP
+      - KR
+      - US
+      - SG
+      - Other_Regions
+#      - All_Proxy
   # 基于地区分组
   - name: HK
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
