@@ -1,8 +1,10 @@
 # 什么值得买每日自动签到
 
 #ZDM定时任务
+[task_local]
 5 10 * * * https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_daily.js, tag=什么值得买每日签到
 
+[rewrite_local]
 ^https?:\/\/user-api\.smzdm\.com\/checkin$ url script-request-header https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_daily.js
 
 hostname = user-api.smzdm.com
