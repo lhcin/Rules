@@ -24,7 +24,11 @@ log-level: info
 ipv6: true
 udp: true
 
+external-controller: 0.0.0.0:9090
+
 geox-url:
+  # geoip: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geoip.dat'
+  # geosite: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geosite.dat'
   mmdb: 'https://gitlab.com/Masaiki/GeoIP2-CN/-/raw/release/Country.mmdb'
   asn: 'https://gitlab.com/Loon0x00/loon_data/-/raw/main/geo/GeoLite2-ASN.mmdb'
 
@@ -45,18 +49,29 @@ sniffer:
       ports: [443, 8443]
     QUIC:
       ports: [443, 8443]
+  force-domain:
+    - +.v2ex.com
 
-# 节点订阅的参数 [每小时更新一次订阅节点，每 6 秒一次健康检查]
-NodeParam: &NodeParam {type: http, interval: 72000, health-check: {enable: true, url: 'http://detectportal.firefox.com/success.txt', interval: 3600}}
+  skip-domain:
+    - Mijia Cloud
 
-proxy-providers: 
-  机场名称1:
-    url: 'clash.sub'
-    <<: *NodeParam
-    path: './proxy_providers/clash.sub.yaml'
-    override:
-      additional-prefix: "[clash.sub] " # 为订阅节点添加机场名称前缀
+tun:
+  enable: true
+  stack: system
+  dns-hijack:
+    - any:53
+  auto-route: true
+  auto-detect-interface: true
+
 dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  ipv6: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 192.22.1.0/16
+  fake-ip-filter:
+    - "*"
+    - +.lan
   default-nameserver:
     - 223.5.5.5
     - 202.96.128.86
@@ -64,6 +79,21 @@ dns:
   nameserver:
     - https://223.5.5.5/dns-query
     - https:///202.96.128.86/dns-query
+
+# 节点订阅的参数 [每小时更新一次订阅节点，每 6 秒一次健康检查]
+NodeParam: &NodeParam {type: http, interval: 72000, health-check: {enable: true, url: 'http://detectportal.firefox.com/success.txt', interval: 3600}}
+
+# 锚点 - 规则参数 [每小时更新一次订阅规则，更新规则时使用直连策略]
+RuleProviders: &RuleProviders {type: http, behavior: classical, interval: 3600, format: yaml, proxy: DIRECT}
+
+proxy-providers: 
+  机场名称1:
+    url: 'https://acsub.kyapi.xyz/modules/servers/V2RaySocks/subscribe/clash.php?sid=213794&token=oSz6ZJ9SyR8n'
+    <<: *NodeParam
+    path: './proxy_providers/clash.sub.yaml'
+    override:
+      additional-prefix: "[clash.sub] " # 为订阅节点添加机场名称前缀
+
 proxies:
   - name: direct
     type: direct
@@ -218,19 +248,19 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml'
   github:
     <<: *RuleProviders
-    path: './rules/Lan.yaml'
+    path: './rules/Github.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GitHub/GitHub.yaml
   google:
     <<: *RuleProviders
-    path: './rules/Lan.yaml'
+    path: './rules/Google.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Google/Google.yaml
   apple:
     <<: *RuleProviders
-    path: './rules/Lan.yaml'
+    path: './rules/Apple.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Apple/Apple.yaml
   openai:
     <<: *RuleProviders
-    path: './rules/Lan.yaml'
+    path: './rules/OpenAI.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml
     
 rules:
@@ -241,7 +271,7 @@ rules:
   - RULE-SET,apple,Apple
   - GEOIP,Lan,direct,no-resolve
   - GEOIP,CN,direct,no-resolve
-  - MATCH,additional_Proxy
+  - MATCH,Additional_Proxy
 
 # script:
 #   shortcuts:
