@@ -1,0 +1,277 @@
+# mihomo 配置
+# 日期：
+# 配置作者：根据https://t.me/iKeLee修改
+# 适用版本：所有使用 mihomo 核心的程序
+
+port: 7890
+socks-port: 7891
+mixed-port: 7892
+redir-port: 7893
+tproxy-port: 7894
+
+unified-delay: true
+geodata-mode: false
+geodata-loader: standard
+geo-auto-update: true
+geo-update-interval: 24
+tcp-concurrent: true
+find-process-mode: strict
+global-client-fingerprint: chrome
+
+allow-lan: true
+mode: rule
+log-level: info
+ipv6: true
+udp: true
+
+external-controller: 0.0.0.0:9090
+
+geox-url:
+  mmdb: 'https://gitlab.com/Masaiki/GeoIP2-CN/-/raw/release/Country.mmdb'
+  asn: 'https://gitlab.com/Loon0x00/loon_data/-/raw/main/geo/GeoLite2-ASN.mmdb'
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+sniffer:
+  enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  override-destination: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  force-domain:
+    - +.v2ex.com
+
+  skip-domain:
+    - Mijia Cloud
+
+tun:
+  enable: true
+  stack: system
+  dns-hijack:
+    - any:53
+  auto-route: true
+  auto-detect-interface: true
+
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  ipv6: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 192.22.1.0/16
+  fake-ip-filter:
+    - "*"
+    - +.lan
+  default-nameserver:
+    - 223.5.5.5
+    - 202.96.128.86
+    - system
+  nameserver:
+    - https://223.5.5.5/dns-query
+    - https:///202.96.128.86/dns-query
+
+# 节点订阅的参数 [每小时更新一次订阅节点，每 6 秒一次健康检查]
+NodeParam: &NodeParam {type: http, interval: 72000, health-check: {enable: true, url: 'http://detectportal.firefox.com/success.txt', interval: 3600}}
+
+# 锚点 - 规则参数 [每小时更新一次订阅规则，更新规则时使用直连策略]
+RuleProviders: &RuleProviders {type: http, behavior: classical, interval: 3600, format: yaml, proxy: DIRECT}
+
+proxy-providers: 
+  sub-url:
+    url: 'sub.url'
+    <<: *NodeParam
+    path: './proxy_providers/clash.sub.yaml'
+    override:
+      additional-prefix: "[clash.sub] " # 为订阅节点添加机场名称前缀
+
+proxies:
+  - name: direct
+    type: direct
+    udp: true
+    
+proxy-groups:
+  - name: Default_Proxy
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
+    type: select
+    proxies:
+      - HK
+      - TW
+      - JP
+      - KR
+      - US
+      - SG
+      - Other_Regions
+#       - All_Proxy
+  - name: Additional_Proxy
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Auto.png
+    type: select
+    proxies:
+      - direct
+      - Default_Proxy
+      - Other_Regions   
+  # 功能分组
+  - name: Google
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png
+    type: select
+    proxies:
+      - US
+      - HK
+      - TW
+      - JP
+      - Default_Proxy
+      - Additional_Proxy
+  - name: Apple
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Apple.png
+    type: select
+    proxies:
+      - direct
+      - Default_Proxy
+      - HK
+      - JP
+      - US
+      - Other_Regions
+#       - All_Proxy
+  - name: Telegram
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Telegram.png
+    type: select
+    proxies:
+      - Default_Proxy
+      - HK
+      - US
+  - name: Github
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/GitHub.png
+    type: select
+    proxies:
+      - Default_Proxy
+      - HK
+      - US
+  - name: OpenAI
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
+    type: select
+    proxies:
+      - Default_Proxy
+      - HK
+      - TW
+      - JP
+      - KR
+      - US
+      - SG
+      - Other_Regions
+#      - All_Proxy
+  # 基于地区分组
+  - name: HK
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
+    type: url-test
+    include-all: true
+    interval: 120
+    tolerance: 50
+    lazy: true
+    filter: "(?i)(澳门|🇲🇴|港|🇭🇰|hk|hong)"
+  - name: TW
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China.png
+    type: url-test
+    include-all: true
+    interval: 120
+    tolerance: 50
+    lazy: true
+    filter: "(?i)(台|🇹🇼|湾|CN|taiwan)"
+  - name: JP
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
+    type: url-test
+    include-all: true
+    interval: 120
+    tolerance: 50
+    lazy: true
+    filter: "(?i)(日|🇯🇵|东京|大阪|jp|japan)"
+  - name: KR
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Korea.png
+    type: url-test
+    include-all: true
+    interval: 120
+    tolerance: 50
+    lazy: true
+    filter: "(?i)(韩|🇰🇷|KR|korea)"
+  - name: US
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
+    type: url-test
+    include-all: true
+    interval: 120
+    tolerance: 50
+    lazy: true
+    filter: "(?i)(美|🇺🇲|us|states|america)"
+  - name: SG
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
+    type: url-test
+    include-all: true
+    interval: 120
+    tolerance: 50
+    lazy: true
+    filter: "(?i)(SG|坡|狮城|🇸🇬|sg|singapore)"
+  - name: Other_Regions
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/World_Map.png
+    type: url-test
+    include-all: true
+    interval: 120
+    tolerance: 50
+    lazy: true
+    filter: "(?i)(马|俄|印|德|土|阿|拿|菲|澳|爱|荷|瑞|巴|越|泰|柬|法|意|以|韩)"
+#   - name: Auto
+#     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Auto.png
+#     type: url-test
+#     include-all: true
+#     interval: 120
+#     tolerance: 50
+#     lazy: true
+#   - name: All_Proxy
+#　   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Global.png
+#     type: select
+#     include-all: true
+
+rule-providers:
+  Lan:
+    <<: *RuleProviders
+    path: './rules/Lan.yaml'
+    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml'
+  telegram:
+    <<: *RuleProviders
+    path: './rules/Telegram.yaml'
+    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml'
+  github:
+    <<: *RuleProviders
+    path: './rules/Github.yaml'
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GitHub/GitHub.yaml
+  google:
+    <<: *RuleProviders
+    path: './rules/Google.yaml'
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Google/Google.yaml
+  youtube:
+    <<: *RuleProviders
+    path: './rules/YouTube.yaml'
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/YouTube/YouTube.yaml
+  apple:
+    <<: *RuleProviders
+    path: './rules/Apple.yaml'
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Apple/Apple.yaml
+  openai:
+    <<: *RuleProviders
+    path: './rules/OpenAI.yaml'
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml
+    
+rules:
+  - RULE-SET,github,Github
+  - RULE-SET,google,Google
+  - RULE-SET,youtube,Google
+  - RULE-SET,apple,Apple
+  - RULE-SET,openai,OpenAI
+  - RULE-SET,telegram,Telegram
+  - GEOIP,Lan,direct,no-resolve
+  - GEOIP,CN,direct,no-resolve
+  - MATCH,Additional_Proxy
