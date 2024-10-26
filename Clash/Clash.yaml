@@ -27,8 +27,6 @@ udp: true
 external-controller: 0.0.0.0:9090
 
 geox-url:
-  # geoip: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geoip.dat'
-  # geosite: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geosite.dat'
   mmdb: 'https://gitlab.com/Masaiki/GeoIP2-CN/-/raw/release/Country.mmdb'
   asn: 'https://gitlab.com/Loon0x00/loon_data/-/raw/main/geo/GeoLite2-ASN.mmdb'
 
@@ -87,8 +85,8 @@ NodeParam: &NodeParam {type: http, interval: 72000, health-check: {enable: true,
 RuleProviders: &RuleProviders {type: http, behavior: classical, interval: 3600, format: yaml, proxy: DIRECT}
 
 proxy-providers: 
-  机场名称1:
-    url: 'https://acsub.kyapi.xyz/modules/servers/V2RaySocks/subscribe/clash.php?sid=213794&token=oSz6ZJ9SyR8n'
+  sub-url:
+    url: 'sub.url'
     <<: *NodeParam
     path: './proxy_providers/clash.sub.yaml'
     override:
