@@ -1,7 +1,7 @@
 proxy-providers:
-  Provider-1:
-    interval: 600
-    url: http://sub.store/download/Provider-1?target=Stash
+  Provider:
+    interval: 3600
+    url: http://sub.store/download/Provider?target=Stash
     type: http
 mode: rule
 dns:
@@ -41,11 +41,11 @@ proxy-groups:
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png
     type: select
     proxies:
-      - Default_Proxy
+      - US
       - HK
       - TW
       - JP
-      - US
+      - Default_Proxy
   - name: Apple
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Apple.png
     type: select
