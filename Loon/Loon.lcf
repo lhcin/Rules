@@ -53,7 +53,7 @@ JP = url-test, 🇯🇵Japan, interval = 60, tolerance = 50, img-url = https://r
 SG = url-test, 🇸🇬Singapore, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
 
 # Fallback
-FB=fallback, DIRECT, HK Auto, TW Auto, JP Auto, SG Auto, interval=60, max-timeout=2000, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+FB=fallback, HK Auto, TW Auto, JP Auto, SG Auto, interval=60, max-timeout=2000, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
 
 [Rule]
 FINAL, FB
