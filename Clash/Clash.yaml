@@ -280,6 +280,6 @@ rules:
   - RULE-SET,apple,Apple
   - RULE-SET,openai,OpenAI
   - RULE-SET,telegram,Telegram
-  - GEOIP,Lan,direct,no-resolve
-  - GEOIP,CN,direct,no-resolve
+  - GEOIP,Lan,DIRECT,no-resolve
+  - GEOIP,CN,DIRECT,no-resolve
   - MATCH,Additional_Proxy
