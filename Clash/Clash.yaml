@@ -98,6 +98,13 @@ proxies:
     udp: true
     
 proxy-groups:
+# 套餐状态
+  - name: "套餐状态"
+    type: select
+    proxies:
+      - ⛽ 剩余流量
+      - 📅 到期时间
+      
   - name: Default_Proxy
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
     type: select
@@ -223,6 +230,16 @@ proxy-groups:
     tolerance: 50
     lazy: true
     filter: "(?i)(马|俄|印|德|土|阿|拿|菲|澳|爱|荷|瑞|巴|越|泰|柬|法|意|以|韩)"
+
+  - name: "⛽ 剩余流量"
+    type: select
+    proxies:
+      - DIRECT
+
+  - name: "📅 到期时间"
+    type: select
+    proxies:
+      - DIRECT
 #   - name: Auto
 #     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Auto.png
 #     type: url-test
