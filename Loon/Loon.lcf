@@ -32,6 +32,7 @@ bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/
 🇨🇳Taiwan = NameRegex, FilterKey = (?=.*(台湾|TW|(?i)Taiwan))^((?!(专线|手游|游戏|海外|game)).)*$
 🇯🇵Japan = NameRegex, FilterKey = (?=.*(日本|JP|(?i)Japan))^((?!(专线|手游|游戏|海外|game)).)*$
 🇸🇬Singapore = NameRegex, FilterKey = (?=.*(新加坡|狮城|SG|(?i)Singapore))^((?!(专线|手游|游戏|海外|game)).)*$
+🇨🇳PlanStatic =NameRegex, FilterKey= (?=.*(循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持(?i)PlanStatus))^((?!(专线|手游|游戏|海外|game)).)*$
 
 [Proxy Group]
 
