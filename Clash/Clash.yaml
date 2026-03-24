@@ -91,11 +91,10 @@ proxy-providers:
     path: './proxy_providers/clash.sub.yaml'
     override:
       additional-prefix: "[clash.sub] " # 为订阅节点添加机场名称前缀
-
-proxies:
-  - name: direct
-    type: direct
-    udp: true
+# proxies:
+#   - name: direct
+#     type: direct
+#     udp: true
     
 proxy-groups:
   - name: Default_Proxy
