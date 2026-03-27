@@ -91,15 +91,6 @@ proxy-providers:
     path: './proxy_providers/clash.sub.yaml'
     override:
       additional-prefix: "[clash.sub] " # 为订阅节点添加机场名称前缀
-# ==================== 你的 IPDeeP 节点（已内置）=====================
-proxies:
-  - name: "IPDeep-Claude"
-    type: socks5
-    server: proxy.ipdeep.com
-    port:
-    username:
-    password:
-    udp: true
     
 proxy-groups:
   - name: Default_Proxy
@@ -122,10 +113,6 @@ proxy-groups:
       - Default_Proxy
       - Other_Regions   
   # 功能分组
-  - name: "AI-IPDeep-Only"
-    type: select
-    proxies:
-      - IPDeep-Claude
   - name: Google
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png
     type: select
@@ -283,28 +270,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml
     
 rules:
-  # VSCode 主程序 → 走普通代理
-  - PROCESS-NAME,Code.exe,Default_Proxy,no-resolve
-  - PROCESS-NAME,code.exe,Default_Proxy,no-resolve
-  - PROCESS-NAME,node.exe,Default_Proxy,no-resolve
-
-  # ==================== AI 全家桶 → 强制走 IPDeeP ====================
-  # Claude
-  - DOMAIN-SUFFIX,claude.ai,AI-IPDeep-Only,no-resolve
-  - DOMAIN-SUFFIX,anthropic.com,AI-IPDeep-Only,no-resolve
-  - DOMAIN-SUFFIX,anthropicusercontent.com,AI-IPDeep-Only,no-resolve
-
-  # ChatGPT / OpenAI
-  - DOMAIN-SUFFIX,chatgpt.com,AI-IPDeep-Only,no-resolve
-  - DOMAIN-SUFFIX,openai.com,AI-IPDeep-Only,no-resolve
-  - DOMAIN-SUFFIX,oaiusercontent.com,AI-IPDeep-Only,no-resolve
-  - DOMAIN-SUFFIX,oaistatic.com,AI-IPDeep-Only,no-resolve
-
-  # Gemini / Google AI
-  - DOMAIN-SUFFIX,gemini.google.com,AI-IPDeep-Only,no-resolve
-  - DOMAIN-SUFFIX,ai.google.dev,AI-IPDeep-Only,no-resolve
-  - DOMAIN-SUFFIX,generativeai.google.com,AI-IPDeep-Only,no-resolve
-  
   - RULE-SET,github,Github
   - RULE-SET,google,Google
   - RULE-SET,youtube,Google
