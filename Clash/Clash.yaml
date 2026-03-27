@@ -99,7 +99,8 @@ proxies:
     port:
     username:
     password:
-    udp: true
+    udp: false
+    dialer-proxy: US
     
 proxy-groups:
   - name: Default_Proxy
@@ -290,7 +291,9 @@ rules:
 
   # ==================== AI 全家桶 → 强制走 IPDeeP ====================
   # Claude
+  - DOMAIN-SUFFIX,claude.com,AI-IPDeep-Only,no-resolve
   - DOMAIN-SUFFIX,claude.ai,AI-IPDeep-Only,no-resolve
+  - DOMAIN-SUFFIX,a-cdn.claude.ai,AI-IPDeep-Only,no-resolve
   - DOMAIN-SUFFIX,anthropic.com,AI-IPDeep-Only,no-resolve
   - DOMAIN-SUFFIX,anthropicusercontent.com,AI-IPDeep-Only,no-resolve
 
@@ -301,9 +304,9 @@ rules:
   - DOMAIN-SUFFIX,oaistatic.com,AI-IPDeep-Only,no-resolve
 
   # Gemini / Google AI
-  - DOMAIN-SUFFIX,gemini.google.com,AI-IPDeep-Only,no-resolve
-  - DOMAIN-SUFFIX,ai.google.dev,AI-IPDeep-Only,no-resolve
-  - DOMAIN-SUFFIX,generativeai.google.com,AI-IPDeep-Only,no-resolve
+  - DOMAIN-SUFFIX,gemini.google.com,AI-IPDeep-Only,no-resolve,no-resolve
+  - DOMAIN-SUFFIX,ai.google.dev,AI-IPDeep-Only,no-resolve,no-resolve
+  - DOMAIN-SUFFIX,generativeai.google.com,AI-IPDeep-Only,no-resolve,no-resolve
   
   - RULE-SET,github,Github
   - RULE-SET,google,Google
