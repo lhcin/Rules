@@ -271,11 +271,11 @@ rules:
   - PROCESS-NAME,code.exe,Default_Proxy,no-resolve
   - PROCESS-NAME,node.exe,Default_Proxy,no-resolve
 
+  - RULE-SET,AI,AI-IPDeep-Only
   - RULE-SET,github,Github
   - RULE-SET,google,Google
   - RULE-SET,youtube,Google
   - RULE-SET,apple,Apple
-  - RULE-SET,AI,AI-IPDeep-Only
   - RULE-SET,telegram,Telegram
   - RULE-SET,Lan,DIRECT
   - GEOIP,CN,DIRECT,no-resolve
