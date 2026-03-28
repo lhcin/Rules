@@ -114,14 +114,7 @@ proxy-groups:
       - US
       - SG
       - Other_Regions
-#       - All_Proxy
-  - name: Additional_Proxy
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Auto.png
-    type: select
-    proxies:
-      - DIRECT
-      - Default_Proxy
-      - Other_Regions   
+
   # 功能分组
   - name: "AI-IPDeep-Only"
     type: select
@@ -162,19 +155,12 @@ proxy-groups:
       - Default_Proxy
       - HK
       - US
-  - name: OpenAI
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
-    type: select
-    proxies:
-      - Default_Proxy
-      - HK
-      - TW
-      - JP
-      - KR
-      - US
-      - SG
-      - Other_Regions
-#      - All_Proxy
+#  - name: AI
+#    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
+#    type: select
+#    proxies:
+#      - Default_Proxy
+
   # 基于地区分组
   - name: HK
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
@@ -278,10 +264,10 @@ rule-providers:
     <<: *RuleProviders
     path: './rules/Apple.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Apple/Apple.yaml
-  openai:
+  AI:
     <<: *RuleProviders
-    path: './rules/OpenAI.yaml'
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml
+    path: './rules/AI-In-One.yaml'
+    url: https://raw.githubusercontent.com/lhcin/Rules/refs/heads/main/Rules/AI-In-One.yaml
     
 rules:
   # VSCode 主程序 → 走普通代理
@@ -289,31 +275,12 @@ rules:
   - PROCESS-NAME,code.exe,Default_Proxy,no-resolve
   - PROCESS-NAME,node.exe,Default_Proxy,no-resolve
 
-  # ==================== AI 全家桶 → 强制走 IPDeeP ====================
-  # Claude
-  - DOMAIN-SUFFIX,claude.com,AI-IPDeep-Only
-  - DOMAIN-SUFFIX,claude.ai,AI-IPDeep-Only
-  - DOMAIN-SUFFIX,a-cdn.claude.ai,AI-IPDeep-Only
-  - DOMAIN-SUFFIX,anthropic.com,AI-IPDeep-Only
-  - DOMAIN-SUFFIX,anthropicusercontent.com,AI-IPDeep-Only
-
-  # ChatGPT / OpenAI
-  - DOMAIN-SUFFIX,chatgpt.com,AI-IPDeep-Only
-  - DOMAIN-SUFFIX,openai.com,AI-IPDeep-Only
-  - DOMAIN-SUFFIX,oaiusercontent.com,AI-IPDeep-Only
-  - DOMAIN-SUFFIX,oaistatic.com,AI-IPDeep-Only
-
-  # Gemini / Google AI
-  - DOMAIN-SUFFIX,gemini.google.com,AI-IPDeep-Only,no-resolve
-  - DOMAIN-SUFFIX,ai.google.dev,AI-IPDeep-Only,no-resolve
-  - DOMAIN-SUFFIX,generativeai.google.com,AI-IPDeep-Only,no-resolve
-  
   - RULE-SET,github,Github
   - RULE-SET,google,Google
   - RULE-SET,youtube,Google
   - RULE-SET,apple,Apple
-  - RULE-SET,openai,OpenAI
+  - RULE-SET,AI,AI-IPDeep-Only
   - RULE-SET,telegram,Telegram
   - RULE-SET,Lan,DIRECT
   - GEOIP,CN,DIRECT,no-resolve
-  - MATCH,Additional_Proxy
+  - MATCH,Default_Proxy
