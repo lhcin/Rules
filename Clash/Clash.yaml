@@ -250,10 +250,10 @@ rule-providers:
     
 rules:
   - RULE-SET,github,Github
+  - RULE-SET,AI,Google
   - RULE-SET,google,Google
   - RULE-SET,youtube,Google
   - RULE-SET,apple,Apple
-  - RULE-SET,AI,Google
   - RULE-SET,telegram,Telegram
   - RULE-SET,DIRECT
   - RULE-SET,DIRECT
