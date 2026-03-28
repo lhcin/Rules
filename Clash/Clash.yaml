@@ -66,7 +66,7 @@ dns:
   listen: 0.0.0.0:1053
   ipv6: true
   enhanced-mode: fake-ip
-  fake-ip-range: 192.22.1.0/16
+  fake-ip-range: 192.22.0.0/16
   fake-ip-filter:
     - "*"
     - +.lan
@@ -76,10 +76,10 @@ dns:
     - system
   nameserver:
     - https://223.5.5.5/dns-query
-    - https:///202.96.128.86/dns-query
+    - https://202.96.128.86/dns-query
 
 # 节点订阅的参数 [每小时更新一次订阅节点，每小时一次健康检查]
-NodeParam: &NodeParam {type: http, interval: 72000, health-check: {enable: true, url: 'http://www.google.com/blank.html', interval: 3600}}
+NodeParam: &NodeParam {type: http, interval: 72000, health-check: {enable: true, url: 'http://connect.rom.miui.com/generate_204', interval: 3600}}
 
 # 锚点 - 规则参数 [每小时更新一次订阅规则，更新规则时使用直连策略]
 RuleProviders: &RuleProviders {type: http, behavior: classical, interval: 3600, format: yaml, proxy: DIRECT}
@@ -276,6 +276,6 @@ rules:
   - RULE-SET,apple,Apple
   - RULE-SET,openai,OpenAI
   - RULE-SET,telegram,Telegram
-  - GEOIP,Lan,DIRECT,no-resolve
+  - RULE-SET,DIRECT
   - GEOIP,CN,DIRECT,no-resolve
   - MATCH,Additional_Proxy
