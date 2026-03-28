@@ -127,9 +127,7 @@ proxy-groups:
       - US
       - HK
       - TW
-      - JP
       - Default_Proxy
-      - Additional_Proxy
   - name: Apple
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Apple.png
     type: select
