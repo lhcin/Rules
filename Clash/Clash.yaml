@@ -76,7 +76,7 @@ dns:
     - system
   nameserver:
     - https://223.5.5.5/dns-query
-    - https://202.96.128.86/dns-query
+    - https://114.114.114.114/dns-query
 
 # 节点订阅的参数 [每小时更新一次订阅节点，每小时一次健康检查]
 NodeParam: &NodeParam {type: http, interval: 72000, health-check: {enable: true, url: 'http://connect.rom.miui.com/generate_204', interval: 3600}}
@@ -100,18 +100,10 @@ proxy-groups:
       - HK
       - TW
       - JP
-      - KR
       - US
       - SG
       - Other_Regions
-#       - All_Proxy
-  - name: Additional_Proxy
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Auto.png
-    type: select
-    proxies:
       - DIRECT
-      - Default_Proxy
-      - Other_Regions   
   # 功能分组
   - name: Google
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png
@@ -148,19 +140,11 @@ proxy-groups:
       - Default_Proxy
       - HK
       - US
-  - name: OpenAI
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
-    type: select
-    proxies:
-      - Default_Proxy
-      - HK
-      - TW
-      - JP
-      - KR
-      - US
-      - SG
-      - Other_Regions
-#      - All_Proxy
+#  - name: OpenAI
+#    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
+#    type: select
+#    proxies:
+#      - Default_Proxy
   # 基于地区分组
   - name: HK
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
@@ -264,18 +248,18 @@ rule-providers:
     <<: *RuleProviders
     path: './rules/Apple.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Apple/Apple.yaml
-  openai:
+  AI:
     <<: *RuleProviders
-    path: './rules/OpenAI.yaml'
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml
+    path: './rules/AI-In-One.yaml'
+    url: https://raw.githubusercontent.com/lhcin/Rules/refs/heads/main/Rules/AI-In-One.yaml
     
 rules:
   - RULE-SET,github,Github
   - RULE-SET,google,Google
   - RULE-SET,youtube,Google
   - RULE-SET,apple,Apple
-  - RULE-SET,openai,OpenAI
+  - RULE-SET,AI,Google
   - RULE-SET,telegram,Telegram
   - RULE-SET,DIRECT
-  - GEOIP,CN,DIRECT,no-resolve
-  - MATCH,Additional_Proxy
+  - RULE-SET,DIRECT
+  - MATCH,Default_Proxy
