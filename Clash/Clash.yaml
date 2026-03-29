@@ -112,6 +112,7 @@ proxy-groups:
       - US
       - SG
       - Other_Regions
+      - IPDeep-Claude
 
   # 功能分组
   - name: "AI-IPDeep-Only"
@@ -127,6 +128,7 @@ proxy-groups:
       - HK
       - TW
       - Default_Proxy
+      - IPDeep-Claude
   - name: Apple
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Apple.png
     type: select
@@ -143,6 +145,7 @@ proxy-groups:
     type: select
     proxies:
       - Default_Proxy
+      - IPDeep-Claude 
       - HK
       - US
   - name: Github
@@ -150,6 +153,7 @@ proxy-groups:
     type: select
     proxies:
       - Default_Proxy
+      - IPDeep-Claude
       - HK
       - US
 #  - name: AI
