@@ -89,7 +89,7 @@ proxy-providers:
     path: './proxy_providers/clash.sub.yaml'
     override:
       additional-prefix: "[clash.sub] " # 为订阅节点添加机场名称前缀
-# ==================== 你的 IPDeeP 节点（已内置）=====================
+# ====================  本地节点  =====================
 proxies:
   - name: "IPDeep-Claude"
     type: socks5
