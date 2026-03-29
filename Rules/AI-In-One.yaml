@@ -58,7 +58,6 @@ payload:
   - DOMAIN,auth.anthropic.com
   - DOMAIN,app.anthropic.com
   - DOMAIN,static.anthropic.com
-  - DOMAIN,cdn.anthropic.com
 
   - DOMAIN-SUFFIX,claude.ai
   - DOMAIN-SUFFIX,anthropic.com
