@@ -115,6 +115,7 @@ proxy-groups:
 
   # 功能分组
   - name: "AI-IPDeep-Only"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
     type: select
     proxies:
       - IPDeep-Claude
