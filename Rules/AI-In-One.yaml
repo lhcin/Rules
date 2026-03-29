@@ -19,12 +19,7 @@ payload:
   - DOMAIN-SUFFIX,chatgpt.livekit.cloud
   - DOMAIN-SUFFIX,client-api.arkoselabs.com
   - DOMAIN-SUFFIX,openai-api.arkoselabs.com
-  - DOMAIN-SUFFIX,azureedge.net
-  - DOMAIN-SUFFIX,azurefd.net
   - DOMAIN-SUFFIX,blob.core.windows.net
-  - DOMAIN-SUFFIX,webpubsub.azure.com
-  - DOMAIN-SUFFIX,cloudfront.net
-  - DOMAIN-SUFFIX,fastly.net
 
   - DOMAIN-KEYWORD,openai
   - DOMAIN-KEYWORD,chatgpt
@@ -73,7 +68,4 @@ payload:
   - DOMAIN-KEYWORD,claude
   - DOMAIN-KEYWORD,anthropic
 
-  - IP-CIDR,104.16.0.0/12,no-resolve
-  - IP-CIDR,108.162.192.0/18,no-resolve
-  - IP-CIDR,172.64.0.0/13,no-resolve
   - IP-ASN,132388
