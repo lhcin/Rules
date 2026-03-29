@@ -255,6 +255,13 @@ rules:
   - RULE-SET,youtube,Google
   - RULE-SET,apple,Apple
   - RULE-SET,telegram,Telegram
-  - RULE-SET,DIRECT
-  - RULE-SET,DIRECT
+  - RULE-SET,Lan,DIRECT
+  - GEOIP,CN,DIRECT,no-resolve
+  - MATCH,Default_Proxy
+
+  - RULE-SET,github,Github
+  - RULE-SET,google,Google
+  - RULE-SET,youtube,Google
+  - RULE-SET,apple,Apple
+  - RULE-SET,telegram,Telegram
   - MATCH,Default_Proxy
