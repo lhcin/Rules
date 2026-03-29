@@ -37,19 +37,12 @@ payload:
 
   - DOMAIN-SUFFIX,googleapis.com
   - DOMAIN-SUFFIX,googleusercontent.com
-  - DOMAIN-SUFFIX,gstatic.com
   - DOMAIN-SUFFIX,firebaseio.com
   - DOMAIN-SUFFIX,appspot.com
-  - DOMAIN-SUFFIX,cloudfunctions.net
-  - DOMAIN-SUFFIX,cloudrun.app
 
   - DOMAIN-KEYWORD,gemini
   - DOMAIN-KEYWORD,generativelanguage
 
-  - IP-CIDR,64.233.160.0/19,no-resolve
-  - IP-CIDR,72.14.192.0/18,no-resolve
-  - IP-CIDR,74.125.0.0/16,no-resolve
-  - IP-CIDR,216.58.192.0/19,no-resolve
   - IP-ASN,15169
 
 # ========== Anthropic Claude ==========
