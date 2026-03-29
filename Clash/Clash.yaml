@@ -238,32 +238,49 @@ proxy-groups:
 rule-providers:
   Lan:
     <<: *RuleProviders
+    behavior: classical
     path: './rules/Lan.yaml'
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml'
   telegram:
     <<: *RuleProviders
+    behavior: classical
     path: './rules/Telegram.yaml'
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml'
   github:
     <<: *RuleProviders
+    behavior: classical
     path: './rules/Github.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GitHub/GitHub.yaml
   google:
     <<: *RuleProviders
+    behavior: classical
     path: './rules/Google.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Google/Google.yaml
   youtube:
     <<: *RuleProviders
+    behavior: classical
     path: './rules/YouTube.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/YouTube/YouTube.yaml
   apple:
     <<: *RuleProviders
+    behavior: classical
     path: './rules/Apple.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Apple/Apple.yaml
-  AI:
+  Gemini:
     <<: *RuleProviders
-    path: './rules/AI-In-One.yaml'
-    url: https://raw.githubusercontent.com/lhcin/Rules/refs/heads/main/Rules/AI-In-One.yaml
+    behavior: classical
+    path: './rules/Gemini.yaml'
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Gemini/Gemini.yaml
+  Claude:
+    <<: *RuleProviders
+    behavior: classical
+    path: './rules/Claude.yaml'
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Claude/Claude.yaml
+  OpenAI:
+    <<: *RuleProviders
+    behavior: classical
+    path: './rules/OpenAI.yaml'
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml   
     
 rules:
   # VSCode 主程序 → 走普通代理
@@ -271,7 +288,9 @@ rules:
   - PROCESS-NAME,code.exe,Default_Proxy,no-resolve
   - PROCESS-NAME,node.exe,Default_Proxy,no-resolve
 
-  - RULE-SET,AI,AI-IPDeep-Only
+  - RULE-SET,Gemini,AI-IPDeep-Only
+  - RULE-SET,Claude,AI-IPDeep-Only
+  - RULE-SET,OpenAI,AI-IPDeep-Only
   - RULE-SET,github,Github
   - RULE-SET,google,Google
   - RULE-SET,youtube,Google
