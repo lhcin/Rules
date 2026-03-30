@@ -12,9 +12,8 @@ allow-wifi-access = false
 interface-mode = auto
 test-timeout = 5
 disconnect-on-policy-change = false
-switch-node-after-failure-times = 3
-internet-test-url = http://bing.com
-proxy-test-url = http://connect.rom.miui.com/generate_204
+internet-test-url = http://connect.rom.miui.com/generate_204
+proxy-test-url = http://www.gstatic.com/generate_204
 resource-parser = https://cdn.jsdelivr.net/gh/sub-store-org/Sub-Store@release/sub-store-parser.loon.min.js
 geoip-url = https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/Country.mmdb
 ipasn-url = https://cdn.jsdelivr.net/gh/P3TERX/GeoLite.mmdb@download/GeoLite2-ASN.mmdb
@@ -53,22 +52,10 @@ SG = url-test, 🇸🇬Singapore, interval = 60, tolerance = 50, img-url = https
 FB=fallback, HK Auto, TW Auto, JP Auto, SG Auto, interval=60, max-timeout=2000, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png
 
 [Rule]
-# 银行金融直连，防风控
-DOMAIN-SUFFIX,bank,DIRECT
-DOMAIN-SUFFIX,icbc,DIRECT
-DOMAIN-SUFFIX,ccb,DIRECT
-DOMAIN-SUFFIX,abc,DIRECT
-DOMAIN-SUFFIX,boc,DIRECT
-DOMAIN-SUFFIX,cmbchina,DIRECT
-DOMAIN-SUFFIX,cib,DIRECT
-DOMAIN-SUFFIX,955,DIRECT
-DOMAIN-SUFFIX,cmpassport.com,DIRECT
-
-# 国内常用域名直连
-DOMAIN-SUFFIX,qq.com,DIRECT
-DOMAIN-SUFFIX,baidu.com,DIRECT
-DOMAIN-SUFFIX,boc.cn,DIRECT
-
+IP-CIDR, 28.0.0.1/8, DIRECT
+IP-CIDR, 198.18.0.1/16, DIRECT
+IP-CIDR, 198.18.0.0/15, DIRECT
+IP-CIDR6, fc00::/18, DIRECT
 FINAL, FB
 
 [Remote Rule]
