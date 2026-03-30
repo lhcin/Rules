@@ -107,8 +107,8 @@ https://cdn.jsdelivr.net/gh/chavyleung/scripts@refs/heads/master/box/rewrite/box
 https://cdn.jsdelivr.net/gh/sub-store-org/Sub-Store@master/config/Loon.plugin, policy=HK, enabled=true
 https://cdn.jsdelivr.net/gh/Script-Hub-Org/Script-Hub@main/modules/script-hub.loon.plugin, policy=HK, enabled=true
 
-#[Mitm]
-#hostname = *
-#ca-p12 = 
-#ca-passphrase = 
-#skip-server-cert-verify = false
+[Mitm]
+hostname = *
+ca-p12 = 
+ca-passphrase = 
+skip-server-cert-verify = false
