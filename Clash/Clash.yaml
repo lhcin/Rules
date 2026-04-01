@@ -19,7 +19,7 @@ global-client-fingerprint: chrome
 allow-lan: true
 mode: rule
 log-level: info
-ipv6: true
+ipv6: false
 udp: true
 
 external-controller: 0.0.0.0:9090
@@ -62,7 +62,7 @@ tun:
 dns:
   enable: true
   listen: 0.0.0.0:1053
-  ipv6: true
+  ipv6: false
   enhanced-mode: fake-ip
   fake-ip-range: 192.22.0.0/16
   fake-ip-filter:
