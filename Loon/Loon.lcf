@@ -25,16 +25,14 @@ bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/
 [Remote Proxy]
 
 [Remote Filter]
-🇺🇸United States = NameRegex, FilterKey = (?=.*(美国|US|(?i)States|American))^((?!(专线|手游|游戏|海外|game)).)*$
-🇨🇳OtherWise = NameRegex, FilterKey = (?=.*(马|俄|印|德|土|阿|拿|菲|澳|爱|荷|瑞|巴|越|泰|柬|法|意|以|韩))^((?!(专线|手游|游戏|海外|game)).)*$
-🇭🇰HongKong = NameRegex, FilterKey = (?=.*(香港|HK|(?i)Hong))^((?!(专线|手游|游戏|海外|game)).)*$
-🇨🇳Taiwan = NameRegex, FilterKey = (?=.*(台湾|TW|(?i)Taiwan))^((?!(专线|手游|游戏|海外|game)).)*$
-🇯🇵Japan = NameRegex, FilterKey = (?=.*(日本|JP|(?i)Japan))^((?!(专线|手游|游戏|海外|game)).)*$
-🇸🇬Singapore = NameRegex, FilterKey = (?=.*(新加坡|狮城|SG|(?i)Singapore))^((?!(专线|手游|游戏|海外|game)).)*$
-🇨🇳PlanStatic =NameRegex, FilterKey= (?=.*(循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持(?i)PlanStatus))^((?!(专线|手游|游戏|海外|game)).)*$
+🇭🇰HongKong=NameRegex, FilterKey="^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+🇨🇳Taiwan=NameRegex, FilterKey="^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+🇯🇵Japan=NameRegex, FilterKey="^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+🇸🇬Singapore=NameRegex, FilterKey="^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+🇺🇸United States=NameRegex, FilterKey="^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+🇨🇳OtherWise=NameRegex, FilterKey="^(?=.*(.))(?!.*((?i)循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
 
 [Proxy Group]
-
 HK Auto Scene=ssid, default=HK Auto, cellular=HK Auto, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
 TW Auto Scene=ssid, default=TW Auto, cellular=TW Auto, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
 JP Auto Scene=ssid, default=JP Auto, cellular=JP Auto, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
