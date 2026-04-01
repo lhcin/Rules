@@ -35,25 +35,37 @@ bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/
 
 [Proxy Group]
 
-HK Auto=ssid, default=HK, cellular=HK, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
-TW Auto=ssid, default=TW, cellular=TW, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
-JP Auto=ssid, default=JP, cellular=JP, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
-SG Auto=ssid, default=SG, cellular=SG, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+HK Auto Scene=ssid, default=HK Auto, cellular=HK Auto, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+TW Auto Scene=ssid, default=TW Auto, cellular=TW Auto, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+JP Auto Scene=ssid, default=JP Auto, cellular=JP Auto, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+SG Auto Scene=ssid, default=SG Auto, cellular=SG Auto, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+US Auto Scene=ssid, default=US Auto, cellular=US Auto, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+OW Auto Scene=ssid, default=OW Auto, cellular=OW Auto, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+HK Manual Scene=ssid, default=HK Manual, cellular=HK Manual, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+TW Manual Scene=ssid, default=TW Manual, cellular=TW Manual, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+JP Manual Scene=ssid, default=JP Manual, cellular=JP Manual, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+SG Manual Scene=ssid, default=SG Manual, cellular=SG Manual, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+US Manual Scene=ssid, default=US Manual, cellular=US Manual, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
+OW Manual Scene=ssid, default=OW Manual, cellular=OW Manual, img-url=https://raw.githubusercontent.com/3/mini/master/Color/SSID.png
 
 # Manual Proxy
-# FN = select, DIRECT, HK, US, OW, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
-OS = select, HK, DIRECT, US, OW, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Filter.png
-ADBlock = select, REJECT, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
-US = select, 🇺🇸United States, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
-OW = select, 🇨🇳OtherWise, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
-# Auto Proxy
-HK = url-test, 🇭🇰HongKong, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
-TW = url-test, 🇨🇳Taiwan, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
-JP = url-test, 🇯🇵Japan, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
-SG = url-test, 🇸🇬Singapore, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+# FN=select, DIRECT, HK, US, OW, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+# OS=select, HK, DIRECT, US, OW, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Filter.png
+HK Auto=url-test, 🇭🇰HongKong, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+TW Auto=url-test, 🇨🇳Taiwan, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
+JP Auto=url-test, 🇯🇵Japan, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+SG Auto=url-test, 🇸🇬Singapore, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+US Auto=url-test, 🇺🇸United States, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+OW Auto=url-test, 🇨🇳OtherWise, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+HK Manual=select, 🇭🇰HongKong, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+TW Manual=select, 🇨🇳Taiwan, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
+JP Manual=select, 🇯🇵Japan, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+SG Manual=select, 🇸🇬Singapore, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+US Manual=select, 🇺🇸United States, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+OW Manual=select, 🇨🇳OtherWise, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
 
 # Fallback
-FB=fallback, HK Auto, TW Auto, JP Auto, SG Auto, interval=60, max-timeout=2000, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+FB=fallback, HK Auto Scene, TW Auto Scene, JP Auto Scene, SG Auto Scene, US Auto Scene, interval=60, max-timeout=2000, img-url=https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/fallback.png
 
 [Rule]
 FINAL, FB
@@ -61,13 +73,13 @@ FINAL, FB
 [Remote Rule]
 # https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/China/China.list, policy = DIRECT, tag = China, enabled = true
 # https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/China/China_Domain.list, policy = DIRECT, tag = China_Domain, enabled = true
-# https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/OpenAI/OpenAI.list, policy = US, tag = Google, enabled = true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Google/Google.list, policy = US, tag = Google, enabled = true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/GitHub/GitHub.list, policy = OS, tag = GitHub, enabled = true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/YouTube/YouTube.list, policy = OS, tag = Youtube, enabled = true
-# https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/OneDrive/OneDrive.list, policy = OS, tag = Onedrive, enabled = true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/ProxyLite/ProxyLite.list, policy = OS, tag = Proxy, enabled = true
-https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy= US , tag=AI, enabled=true
+# https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/OpenAI/OpenAI.list, policy = US Auto Scene, tag = Google, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Google/Google.list, policy = US Auto Scene, tag = Google, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/GitHub/GitHub.list, policy = HK Auto Scene, tag = GitHub, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/YouTube/YouTube.list, policy = US Auto Scene, tag = Youtube, enabled = true
+# https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/OneDrive/OneDrive.list, policy = HK Auto Scene, tag = Onedrive, enabled = true
+# https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/ProxyLite/ProxyLite.list, policy = HK Auto Scene, tag = Proxy, enabled = true
+https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy= US Auto Scene , tag=AI, enabled=true
 https://kelee.one/Tool/Loon/Lsr/LAN_SPLITTER.lsr, policy=DIRECT, tag=LAN, enabled=true
 https://kelee.one/Tool/Loon/Lsr/REGION_SPLITTER.lsr, policy=DIRECT, tag=CN REGION, enabled=true
 
