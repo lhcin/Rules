@@ -77,8 +77,17 @@ dns:
     - https://114.114.114.114/dns-query
 
 # 节点订阅的参数 [每小时更新一次订阅节点，每分钟一次健康检查]
-NodeParam: &NodeParam {type: http, interval: 3600, health-check: {enable: true, url: 'http://connect.rom.miui.com/generate_204', interval: 60}}
-
+# 全局节点参数（切换自动刷新）
+NodeParam: &NodeParam
+  type: http
+  interval: 3600
+  health-check:
+    enable: true
+    url: http://connect.rom.miui.com/generate_204
+    interval: 60
+    timeout: 5000
+    lazy: false        # 关闭惰性检查 = 切换立刻刷新
+    expected-status: 204
 # 锚点 - 规则参数 [每小时更新一次订阅规则，更新规则时使用直连策略]
 RuleProviders: &RuleProviders {type: http, behavior: classical, interval: 3600, format: yaml, proxy: DIRECT}
 
