@@ -61,6 +61,7 @@ FB=fallback, HK Auto, TW Auto, JP Auto, SG Auto, interval=60, max-timeout=2000, 
 Proxy_chain = US Auto,ipdeep, udp=true
 
 [Rule]
+DOMAIN-SUFFIX,ping0.cc,AI
 FINAL, FB
 
 [Remote Rule]
