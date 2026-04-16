@@ -22,6 +22,7 @@ skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, e.cr
 bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32
 
 [Proxy]
+ipdeep = http,proxy.ipdeep.com,4000,username,"passwd",udp=true,block-quic=false,ip-mode=v4-only
 
 [Remote Proxy]
 
@@ -56,19 +57,22 @@ SG = url-test, 🇸🇬Singapore, interval = 60, tolerance = 50, img-url = https
 # Fallback
 FB=fallback, HK Auto, TW Auto, JP Auto, SG Auto, interval=60, max-timeout=2000, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
 
+[Proxy Chain]
+Proxy_chain = US Auto,ipdeep, udp=true
+
 [Rule]
 FINAL, FB
 
 [Remote Rule]
 #　https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/China/China.list, policy = DIRECT, tag = China, enabled = true
 # https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/China/China_Domain.list, policy = DIRECT, tag = China_Domain, enabled = true
-# https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/OpenAI/OpenAI.list, policy = US, tag = Google, enabled = true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Google/Google.list, policy = US, tag = Google, enabled = true
+# https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/OpenAI/OpenAI.list, policy = Proxy_chain, tag = Google, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Google/Google.list, policy = Proxy_chain, tag = Google, enabled = true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/GitHub/GitHub.list, policy = OS, tag = GitHub, enabled = true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/YouTube/YouTube.list, policy = OS, tag = Youtube, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/YouTube/YouTube.list, policy = Proxy_chain, tag = Youtube, enabled = true
 # https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/OneDrive/OneDrive.list, policy = OS, tag = Onedrive, enabled = true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/ProxyLite/ProxyLite.list, policy = OS, tag = Proxy, enabled = true
-https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy= US , tag=AI, enabled=true
+https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy= Proxy_chain , tag=AI, enabled=true
 https://kelee.one/Tool/Loon/Lsr/LAN_SPLITTER.lsr, policy=DIRECT, tag=LAN, enabled=true
 https://kelee.one/Tool/Loon/Lsr/REGION_SPLITTER.lsr, policy=DIRECT, tag=CN REGION, enabled=true
 
