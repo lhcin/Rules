@@ -102,23 +102,8 @@ NodeParam: &NodeParam {type: http, interval: 3600, health-check: {enable: true, 
 # 锚点 - 规则参数 [每小时更新一次订阅规则，更新规则时使用直连策略]
 RuleProviders: &RuleProviders {type: http, behavior: classical, interval: 3600, format: yaml, proxy: DIRECT}
 
-proxy-providers: 
-  sub-url:
-    url: 'sub.url'
-    <<: *NodeParam
-    path: './proxy_providers/clash.sub.yaml'
-    override:
-      additional-prefix: "[clash.sub] " # 为订阅节点添加机场名称前缀
-# ====================  本地节点  =====================
-proxies:
-  - name: "IPDeep-Claude"
-    type: socks5
-    server: proxy.ipdeep.com
-    port:
-    username:
-    password:
-    udp: true
-    dialer-proxy: US
+include:
+  - ./proxy_providers.yaml
     
 proxy-groups:
   - name: Default_Proxy
