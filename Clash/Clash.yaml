@@ -19,7 +19,7 @@ global-client-fingerprint: chrome
 allow-lan: true
 mode: rule
 log-level: info
-ipv6: true
+ipv6: false
 udp: true
 
 external-controller: 0.0.0.0:9090
@@ -31,7 +31,7 @@ geox-url:
 profile:
   store-selected: true
   store-fake-ip: true
-
+  
 tun:
   enable: true
   stack: gvisor              # Windows 推荐 gvisor
@@ -40,7 +40,6 @@ tun:
   auto-route: true
   auto-detect-interface: true
   mtu: 1500                  
-
 # ────────────────────────────────────────────────────────────
 # Sniffer 配置（TUN 模式下必须！）
 # ────────────────────────────────────────────────────────────
@@ -59,10 +58,10 @@ sniffer:
 
 dns:
   enable: true
-  listen: 0.0.0.0:1053
-  ipv6: true
+  listen: 0.0.0.0:53
+  ipv6: false
   enhanced-mode: fake-ip
-  fake-ip-range: 192.22.0.0/16
+  fake-ip-range: 192.18.0.0/16
   fake-ip-filter:
     - '*.lan'
     - '*.local'
@@ -107,9 +106,8 @@ proxy-providers:
     path: './proxy_providers/clash.sub.yaml'
     override:
       additional-prefix: "[clash.sub] " # 为订阅节点添加机场名称前缀
-    
 proxy-groups:
-# 基于地区分组
+  # 基于地区分组
   - name: HK
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
     type: url-test
@@ -125,7 +123,7 @@ proxy-groups:
     interval: 120
     tolerance: 50
     lazy: true
-    filter: "(?i)(台|🇹🇼|湾|CN|taiwan)"
+    filter: "(?i)(台|🇹🇼|湾|taiwan)"
   - name: JP
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
     type: url-test
@@ -166,8 +164,13 @@ proxy-groups:
     tolerance: 50
     lazy: true
     filter: "(?i)(马|俄|印|德|土|阿|拿|菲|澳|爱|荷|瑞|巴|越|泰|柬|法|意|以|韩)"
-      
-# 功能分组
+
+  # 功能分组
+  - name: "AI-IPDeep-Only"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
+    type: select
+    proxies:
+      - IPDeep-Claude
   - name: Default_Proxy
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
     type: select
@@ -175,10 +178,11 @@ proxy-groups:
       - HK
       - TW
       - JP
+      - KR
       - US
       - SG
       - Other_Regions
-      - DIRECT
+      - IPDeep-Claude
   - name: Google
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png
     type: select
@@ -187,6 +191,7 @@ proxy-groups:
       - HK
       - TW
       - Default_Proxy
+      - IPDeep-Claude
   - name: Apple
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Apple.png
     type: select
@@ -202,6 +207,7 @@ proxy-groups:
     type: select
     proxies:
       - Default_Proxy
+      - IPDeep-Claude 
       - HK
       - US
   - name: Github
@@ -209,60 +215,68 @@ proxy-groups:
     type: select
     proxies:
       - Default_Proxy
+      - IPDeep-Claude
       - HK
       - US
+
+proxies:
+  - name: "IPDeep-Claude"
+    type: socks5
+    server: 123m
+    port: 123
+    username: 123
+    password: 12223
+    udp: true
+    dialer-proxy: US
 
 rule-providers:
   Lan:
     <<: *RuleProviders
-    behavior: classical
     path: './rules/Lan.yaml'
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml'
   telegram:
     <<: *RuleProviders
-    behavior: classical
     path: './rules/Telegram.yaml'
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml'
   github:
     <<: *RuleProviders
-    behavior: classical
     path: './rules/Github.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GitHub/GitHub.yaml
   google:
     <<: *RuleProviders
-    behavior: classical
     path: './rules/Google.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Google/Google.yaml
   youtube:
     <<: *RuleProviders
-    behavior: classical
     path: './rules/YouTube.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/YouTube/YouTube.yaml
   apple:
     <<: *RuleProviders
-    behavior: classical
     path: './rules/Apple.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Apple/Apple.yaml
   Gemini:
     <<: *RuleProviders
-    behavior: classical
     path: './rules/Gemini.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Gemini/Gemini.yaml
   Claude:
     <<: *RuleProviders
-    behavior: classical
     path: './rules/Claude.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Claude/Claude.yaml
   OpenAI:
     <<: *RuleProviders
-    behavior: classical
     path: './rules/OpenAI.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml   
     
 rules:
-  - RULE-SET,Gemini,Google
-  - RULE-SET,Claude,Google
-  - RULE-SET,OpenAI,Google
+#  VSCode 主程序 → 走普通代理
+#  - PROCESS-NAME,Code.exe,Default_Proxy,no-resolve
+#  - PROCESS-NAME,code.exe,Default_Proxy,no-resolve
+#  - PROCESS-NAME,node.exe,Default_Proxy,no-resolve
+
+  - RULE-SET,Gemini,AI-IPDeep-Only
+  - RULE-SET,Claude,AI-IPDeep-Only
+  - RULE-SET,OpenAI,AI-IPDeep-Only
+  - RULE-SET,github,Github
   - RULE-SET,google,Google
   - RULE-SET,youtube,Google
   - RULE-SET,apple,Apple
