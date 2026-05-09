@@ -132,7 +132,7 @@ proxy-groups:
     interval: 120
     tolerance: 50
     lazy: true
-    filter: "(?i)(台|🇹🇼|湾|CN|taiwan)"
+    filter: "(?i)(台|🇹🇼|湾|taiwan)"
   - name: JP
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
     type: url-test
@@ -231,47 +231,38 @@ proxy-groups:
 rule-providers:
   Lan:
     <<: *RuleProviders
-    behavior: classical
     path: './rules/Lan.yaml'
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml'
   telegram:
     <<: *RuleProviders
-    behavior: classical
     path: './rules/Telegram.yaml'
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml'
   github:
     <<: *RuleProviders
-    behavior: classical
     path: './rules/Github.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GitHub/GitHub.yaml
   google:
     <<: *RuleProviders
-    behavior: classical
     path: './rules/Google.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Google/Google.yaml
   youtube:
     <<: *RuleProviders
-    behavior: classical
     path: './rules/YouTube.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/YouTube/YouTube.yaml
   apple:
     <<: *RuleProviders
-    behavior: classical
     path: './rules/Apple.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Apple/Apple.yaml
   Gemini:
     <<: *RuleProviders
-    behavior: classical
     path: './rules/Gemini.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Gemini/Gemini.yaml
   Claude:
     <<: *RuleProviders
-    behavior: classical
     path: './rules/Claude.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Claude/Claude.yaml
   OpenAI:
     <<: *RuleProviders
-    behavior: classical
     path: './rules/OpenAI.yaml'
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml   
     
