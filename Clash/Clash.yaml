@@ -40,7 +40,6 @@ tun:
   auto-route: true
   auto-detect-interface: true
   mtu: 1500                  
-
 # ────────────────────────────────────────────────────────────
 # Sniffer 配置（TUN 模式下必须！）
 # ────────────────────────────────────────────────────────────
@@ -212,7 +211,6 @@ proxy-groups:
       - JP
       - US
       - Other_Regions
-#       - All_Proxy
   - name: Telegram
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Telegram.png
     type: select
@@ -229,33 +227,6 @@ proxy-groups:
       - IPDeep-Claude
       - HK
       - US
-#  - name: AI
-#    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
-#    type: select
-#    proxies:
-#      - Default_Proxy
-
-
-#   - name: Plan_Status
-#     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Airport.png
-#     type: select
-#　   include-all: true
-#     interval: 120
-#     tolerance: 50
-#     lazy: true
-#     filter: "(?i)(官网|客服|网站|网址|获取|订阅|流量|到期|机场|过期|已用)"
-
-#   - name: Auto
-#     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Auto.png
-#     type: url-test
-#     include-all: true
-#     interval: 120
-#     tolerance: 50
-#     lazy: true
-#   - name: All_Proxy
-#　   icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Global.png
-#     type: select
-#     include-all: true
 
 rule-providers:
   Lan:
