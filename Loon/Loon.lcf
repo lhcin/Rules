@@ -46,23 +46,21 @@ TW Manual Scene=ssid, default=TW Manual, cellular=TW Manual, img-url=https://raw
 JP Manual Scene=ssid, default=JP Manual, cellular=JP Manual, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
 SG Manual Scene=ssid, default=SG Manual, cellular=SG Manual, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
 US Manual Scene=ssid, default=US Manual, cellular=US Manual, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
-OW Manual Scene=ssid, default=OW Manual, cellular=OW Manual, img-url=https://raw.githubusercontent.com/3/mini/master/Color/SSID.png
+OW Manual Scene=ssid, default=OW Manual, cellular=OW Manual, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png
 
 # Manual Proxy
-# FN=select, DIRECT, HK, US, OW, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
-# OS=select, HK, DIRECT, US, OW, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Filter.png
 HK Auto=url-test, 🇭🇰HongKong, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
 TW Auto=url-test, 🇨🇳Taiwan, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
 JP Auto=url-test, 🇯🇵Japan, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
 SG Auto=url-test, 🇸🇬Singapore, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
-US Auto=url-test, 🇺🇸United States, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
-OW Auto=url-test, 🇨🇳OtherWise, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+US Auto=url-test, 🇺🇸United States, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+OW Auto=url-test, 🇨🇳OtherWise, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
 HK Manual=select, 🇭🇰HongKong, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
 TW Manual=select, 🇨🇳Taiwan, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
 JP Manual=select, 🇯🇵Japan, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
 SG Manual=select, 🇸🇬Singapore, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
-US Manual=select, 🇺🇸United States, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
-OW Manual=select, 🇨🇳OtherWise, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+US Manual=select, 🇺🇸United States, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+OW Manual=select, 🇨🇳OtherWise, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
 
 # Fallback
 FB=fallback, HK Auto Scene, TW Auto Scene, JP Auto Scene, SG Auto Scene, US Auto Scene, interval=60, max-timeout=2000, img-url=https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/fallback.png
