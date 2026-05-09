@@ -65,7 +65,7 @@ dns:
   ipv6: true
   enhanced-mode: fake-ip
   fake-ip-range: 192.22.0.0/16
-   fake-ip-filter:
+  fake-ip-filter:
     - '*.lan'
     - '*.local'
     - '*.msftncsi.com'
