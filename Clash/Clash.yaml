@@ -107,69 +107,16 @@ proxy-providers:
     path: './proxy_providers/clash.sub.yaml'
     override:
       additional-prefix: "[clash.sub] " # 为订阅节点添加机场名称前缀
-    
+proxies:
+  - name: "IPDeep-Claude"
+    type: socks5
+    server: 123m
+    port: 123
+    username: 123
+    password: 12223
+    udp: true
+    dialer-proxy: US    
 proxy-groups:
-  - name: Default_Proxy
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
-    type: select
-    proxies:
-      - HK
-      - TW
-      - JP
-      - KR
-      - US
-      - SG
-      - Other_Regions
-      - IPDeep-Claude
-
-  # 功能分组
-  - name: "AI-IPDeep-Only"
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
-    type: select
-    proxies:
-      - IPDeep-Claude
-  - name: Google
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png
-    type: select
-    proxies:
-      - US
-      - HK
-      - TW
-      - Default_Proxy
-      - IPDeep-Claude
-  - name: Apple
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Apple.png
-    type: select
-    proxies:
-      - DIRECT
-      - Default_Proxy
-      - HK
-      - JP
-      - US
-      - Other_Regions
-#       - All_Proxy
-  - name: Telegram
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Telegram.png
-    type: select
-    proxies:
-      - Default_Proxy
-      - IPDeep-Claude 
-      - HK
-      - US
-  - name: Github
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/GitHub.png
-    type: select
-    proxies:
-      - Default_Proxy
-      - IPDeep-Claude
-      - HK
-      - US
-#  - name: AI
-#    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
-#    type: select
-#    proxies:
-#      - Default_Proxy
-
   # 基于地区分组
   - name: HK
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
@@ -227,6 +174,68 @@ proxy-groups:
     tolerance: 50
     lazy: true
     filter: "(?i)(马|俄|印|德|土|阿|拿|菲|澳|爱|荷|瑞|巴|越|泰|柬|法|意|以|韩)"
+
+  # 功能分组
+  - name: "AI-IPDeep-Only"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
+    type: select
+    proxies:
+      - IPDeep-Claude
+  - name: Default_Proxy
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
+    type: select
+    proxies:
+      - HK
+      - TW
+      - JP
+      - KR
+      - US
+      - SG
+      - Other_Regions
+      - IPDeep-Claude
+  - name: Google
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png
+    type: select
+    proxies:
+      - US
+      - HK
+      - TW
+      - Default_Proxy
+      - IPDeep-Claude
+  - name: Apple
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Apple.png
+    type: select
+    proxies:
+      - DIRECT
+      - Default_Proxy
+      - HK
+      - JP
+      - US
+      - Other_Regions
+#       - All_Proxy
+  - name: Telegram
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Telegram.png
+    type: select
+    proxies:
+      - Default_Proxy
+      - IPDeep-Claude 
+      - HK
+      - US
+  - name: Github
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/GitHub.png
+    type: select
+    proxies:
+      - Default_Proxy
+      - IPDeep-Claude
+      - HK
+      - US
+#  - name: AI
+#    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
+#    type: select
+#    proxies:
+#      - Default_Proxy
+
+
 #   - name: Plan_Status
 #     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Airport.png
 #     type: select
@@ -296,10 +305,10 @@ rule-providers:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml   
     
 rules:
-  # VSCode 主程序 → 走普通代理
-  - PROCESS-NAME,Code.exe,Default_Proxy,no-resolve
-  - PROCESS-NAME,code.exe,Default_Proxy,no-resolve
-  - PROCESS-NAME,node.exe,Default_Proxy,no-resolve
+#  VSCode 主程序 → 走普通代理
+#  - PROCESS-NAME,Code.exe,Default_Proxy,no-resolve
+#  - PROCESS-NAME,code.exe,Default_Proxy,no-resolve
+#  - PROCESS-NAME,node.exe,Default_Proxy,no-resolve
 
   - RULE-SET,Gemini,AI-IPDeep-Only
   - RULE-SET,Claude,AI-IPDeep-Only
