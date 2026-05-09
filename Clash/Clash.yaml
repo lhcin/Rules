@@ -66,19 +66,41 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 192.22.0.0/16
   fake-ip-filter:
-    - "*"
-    - +.lan
+    - '*.lan'
+    - '*.local'
+    - '*.msftncsi.com'
+    - 'www.msftconnecttest.com'
   default-nameserver:
-    - 8.8.8.8
-    - 1.1.1.1
+    - 223.5.5.5
+    - 114.114.114.114
   nameserver:
-    - https://8.8.8.8/dns-query
-    - https://1.1.1.1/dns-query
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  nameserver-policy:
+    '+.openai.com':
+      - https://8.8.8.8/dns-query
+      - https://1.1.1.1/dns-query
+    '+.chatgpt.com':
+      - https://8.8.8.8/dns-query
+      - https://1.1.1.1/dns-query
+    '+.anthropic.com':
+      - https://8.8.8.8/dns-query
+      - https://1.1.1.1/dns-query
+    '+.claude.ai':
+      - https://8.8.8.8/dns-query
+      - https://1.1.1.1/dns-query
+    '+.google.com':
+      - https://8.8.8.8/dns-query
+      - https://1.1.1.1/dns-query
+  proxy-server-nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+
 
 # 锚点 - 节点订阅的参数 [每小时更新一次订阅节点，每 60 秒一次健康检查]
 NodeParam: &NodeParam {type: http, interval: 3600, health-check: {enable: true, url: 'http://www.google.com/blank.html', interval: 60,lazy: false}}
 # 锚点 - 规则参数 [每小时更新一次订阅规则，更新规则时使用直连策略]
-# RuleProviders: &RuleProviders {type: http, behavior: classical, interval: 3600, format: yaml, proxy: DIRECT}
+RuleProviders: &RuleProviders {type: http, behavior: classical, interval: 3600, format: yaml, proxy: DIRECT}
 
 proxy-providers: 
   sub-url:
