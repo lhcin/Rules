@@ -22,7 +22,7 @@ skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, e.cr
 bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32
 
 [Proxy]
-ipdeep = http,proxy.ipdeep.com,4000,username,"passwd",udp=true,block-quic=false,ip-mode=v4-only
+StaticIP = http,proxy.ipdeep.com,4000,username,"passwd",udp=true,block-quic=false,ip-mode=v4-only
 
 [Remote Proxy]
 
@@ -67,18 +67,18 @@ OW Manual=select, 🇨🇳OtherWise, img-url = https://raw.githubusercontent.com
 FB=fallback, HK Auto Scene, TW Auto Scene, JP Auto Scene, SG Auto Scene, US Auto Scene, interval=60, max-timeout=2000, img-url=https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/fallback.png
 
 [Proxy Chain]
-Proxy_chain = US Auto,ipdeep, udp=true
+US Chain- = US Auto,StaticIP, udp=true
 
 [Rule]
-DOMAIN-SUFFIX,ping0.cc, Proxy_chain
+DOMAIN-SUFFIX,ping0.cc, US Chain
 FINAL, FB
 
 [Remote Rule]
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Google/Google.list, policy = Proxy_chain, tag = Google, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Google/Google.list, policy = US Chain, tag = Google, enabled = true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/GitHub/GitHub.list, policy = HK Auto Scene, tag = GitHub, enabled = true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/YouTube/YouTube.list, policy = Proxy_chain, tag = Youtube, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/YouTube/YouTube.list, policy = US Chain, tag = Youtube, enabled = true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/ProxyLite/ProxyLite.list, policy = HK Auto Scene, tag = Proxy, enabled = true
-https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy= Proxy_chain , tag=AI, enabled=true
+https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy= US Chain , tag=AI, enabled=true
 https://kelee.one/Tool/Loon/Lsr/LAN_SPLITTER.lsr, policy=DIRECT, tag=LAN, enabled=true
 https://kelee.one/Tool/Loon/Lsr/REGION_SPLITTER.lsr, policy=DIRECT, tag=CN REGION, enabled=true
 
@@ -107,9 +107,9 @@ https://kelee.one/Tool/Loon/Plugin/LoonGallery.plugin, policy=HK Auto Scene, ena
 # https://raw.githubusercontent.com/fmz200/wool_scripts/main/Loon/plugin/blockAds.plugin, enabled=true
 https://kelee.one/Tool/Loon/Plugin/Bilibili_remove_ads.plugin, enabled=true
 https://raw.githubusercontent.com/ssyit/Rules/refs/heads/main/Loon/Plugin/ip_check_tools.plugin, enabled=true
-https://raw.githubusercontent.com/chavyleung/scripts/refs/heads/master/box/rewrite/boxjs.rewrite.loon.plugin, policy=HK, enabled=true
-https://raw.githubusercontent.com/sub-store-org/Sub-Store/refs/heads/master/config/Loon.plugin, policy=HK Auto, enabled=true
-https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.loon.plugin, policy=HK Auto, enabled=true
+https://raw.githubusercontent.com/chavyleung/scripts/refs/heads/master/box/rewrite/boxjs.rewrite.loon.plugin, policy=HK Auto Scene, enabled=true
+https://raw.githubusercontent.com/sub-store-org/Sub-Store/refs/heads/master/config/Loon.plugin, policy=HK Auto Scene, enabled=true
+https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.loon.plugin, policy=HK Auto Scene, enabled=true
 
 [Mitm]
 hostname = 
