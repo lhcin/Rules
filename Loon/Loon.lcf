@@ -67,18 +67,18 @@ OW Manual=select, 🇨🇳OtherWise, img-url = https://raw.githubusercontent.com
 FB=fallback, HK Auto Scene, TW Auto Scene, JP Auto Scene, SG Auto Scene, US Auto Scene, interval=60, max-timeout=2000, img-url=https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/fallback.png
 
 [Proxy Chain]
-US Chain- = US Auto,StaticIP, udp=true
+Chain- = US Auto,StaticIP, udp=true
 
 [Rule]
-DOMAIN-SUFFIX,ping0.cc, US Chain
+DOMAIN-SUFFIX,ping0.cc, Chain
 FINAL, FB
 
 [Remote Rule]
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Google/Google.list, policy = US Chain, tag = Google, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Google/Google.list, policy = Chain, tag = Google, enabled = true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/GitHub/GitHub.list, policy = HK Auto Scene, tag = GitHub, enabled = true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/YouTube/YouTube.list, policy = US Chain, tag = Youtube, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/YouTube/YouTube.list, policy = Chain, tag = Youtube, enabled = true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/ProxyLite/ProxyLite.list, policy = HK Auto Scene, tag = Proxy, enabled = true
-https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy= US Chain , tag=AI, enabled=true
+https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy= Chain , tag=AI, enabled=true
 https://kelee.one/Tool/Loon/Lsr/LAN_SPLITTER.lsr, policy=DIRECT, tag=LAN, enabled=true
 https://kelee.one/Tool/Loon/Lsr/REGION_SPLITTER.lsr, policy=DIRECT, tag=CN REGION, enabled=true
 
