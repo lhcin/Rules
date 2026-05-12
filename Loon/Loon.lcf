@@ -50,7 +50,7 @@ OW Auto=select, 🇨🇳OtherWise, interval = 60, tolerance = 50, img-url = http
 # OW Manual=select, 🇨🇳OtherWise, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
 
 # Fallback
-FB=fallback, HK Auto Scene, TW Auto Scene, JP Auto Scene, SG Auto Scene, US Auto Scene, interval=60, max-timeout=2000, img-url=https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/fallback.png
+FB=fallback, HK Auto, TW Auto, SG Auto, US Auto, interval=60, max-timeout=2000, img-url=https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/fallback.png
 
 [Proxy Chain]
 Chain = US Auto,StaticIP, udp=true
