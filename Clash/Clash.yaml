@@ -196,11 +196,12 @@ proxy-groups:
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png
     type: select
     proxies:
+      - IPDeep-Claude
       - US
       - HK
       - TW
       - Default_Proxy
-      - IPDeep-Claude
+
   - name: Apple
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Apple.png
     type: select
@@ -215,8 +216,8 @@ proxy-groups:
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Telegram.png
     type: select
     proxies:
-      - Default_Proxy
       - IPDeep-Claude 
+      - Default_Proxy
       - HK
       - US
   - name: Github
