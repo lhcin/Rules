@@ -108,6 +108,14 @@ proxy-providers:
       additional-prefix: "[clash.sub] " # 为订阅节点添加机场名称前缀
 proxy-groups:
   # 基于地区分组
+  - name: US
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
+    type: url-test
+    include-all: true
+    interval: 120
+    tolerance: 50
+    lazy: true
+    filter: "(?i)(美|🇺🇲|us|states|america)"
   - name: HK
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
     type: url-test
@@ -140,14 +148,6 @@ proxy-groups:
     tolerance: 50
     lazy: true
     filter: "(?i)(韩|🇰🇷|KR|korea)"
-  - name: US
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
-    type: url-test
-    include-all: true
-    interval: 120
-    tolerance: 50
-    lazy: true
-    filter: "(?i)(美|🇺🇲|us|states|america)"
   - name: SG
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
     type: url-test
@@ -166,11 +166,6 @@ proxy-groups:
     filter: "(?i)(马|俄|印|德|土|阿|拿|菲|澳|爱|荷|瑞|巴|越|泰|柬|法|意|以|韩)"
 
   # 功能分组
-  - name: "AI-IPDeep-Only"
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
-    type: select
-    proxies:
-      - IPDeep-Claude
   - name: Default_Proxy
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
     type: select
@@ -182,7 +177,6 @@ proxy-groups:
       - US
       - SG
       - Other_Regions
-      - IPDeep-Claude
   - name: Google
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png
     type: select
@@ -191,7 +185,6 @@ proxy-groups:
       - HK
       - TW
       - Default_Proxy
-      - IPDeep-Claude
   - name: Apple
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Apple.png
     type: select
@@ -207,7 +200,6 @@ proxy-groups:
     type: select
     proxies:
       - Default_Proxy
-      - IPDeep-Claude 
       - HK
       - US
   - name: Github
@@ -215,19 +207,8 @@ proxy-groups:
     type: select
     proxies:
       - Default_Proxy
-      - IPDeep-Claude
       - HK
       - US
-
-proxies:
-  - name: "IPDeep-Claude"
-    type: socks5
-    server: 123m
-    port: 123
-    username: 123
-    password: 12223
-    udp: true
-    dialer-proxy: US
 
 rule-providers:
   Lan:
@@ -268,14 +249,10 @@ rule-providers:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml   
     
 rules:
-#  VSCode 主程序 → 走普通代理
-#  - PROCESS-NAME,Code.exe,Default_Proxy,no-resolve
-#  - PROCESS-NAME,code.exe,Default_Proxy,no-resolve
-#  - PROCESS-NAME,node.exe,Default_Proxy,no-resolve
 
-  - RULE-SET,Gemini,AI-IPDeep-Only
-  - RULE-SET,Claude,AI-IPDeep-Only
-  - RULE-SET,OpenAI,AI-IPDeep-Only
+  - RULE-SET,Gemini,Google
+  - RULE-SET,Claude,US
+  - RULE-SET,OpenAI,US
   - RULE-SET,github,Github
   - RULE-SET,google,Google
   - RULE-SET,youtube,Google
