@@ -1,16 +1,42 @@
-#!name=桃源谷首页净化
-#!desc=去除 CPS 推广入口 (微信/支付宝/乐园)
+#!name=桃源谷首页净化 & 广告拦截
+#!desc=去除 CPS 推广入口 (微信/支付宝/乐园) + 拦截第三方广告
 #!author=lhcin
-#!version=2.2.0
+#!version=2.3.0
 
 [General]
-title = 桃源谷首页净化
-desc = 去除 CPS 推广入口 (微信/支付宝/乐园)
+title = 桃源谷首页净化 & 广告拦截
+desc = 去除 CPS 推广入口 + 拦截第三方广告
 author = lhcin
-version = 2.2.0
+version = 2.3.0
 
 [MITM]
 hostname = lxj.taoyuangu.com
 
 [Script]
 TyCleaner=type=http-response,pattern=^https:\/\/lxj\.taoyuangu\.com,requires-body=1,script-path=https://raw.githubusercontent.com/lhcin/Rules/main/Loon/TyCleaner.js
+
+[Rule]
+# === 桃源谷广告拦截规则 ===
+
+# 倍孜广告 SDK
+DOMAIN-SUFFIX,beizi.biz,REJECT
+
+# 1RTB 实时竞价广告
+DOMAIN-SUFFIX,1rtb.net,REJECT
+DOMAIN-SUFFIX,1rtb.com,REJECT
+
+# HubCloud 广告平台
+DOMAIN-SUFFIX,hubcloud.com.cn,REJECT
+
+# 百度广告 & 统计
+DOMAIN-SUFFIX,pos.baidu.com,REJECT
+DOMAIN-SUFFIX,als.baidu.com,REJECT
+
+# 穿山甲/头条广告素材
+DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
+
+# 火山引擎
+DOMAIN-SUFFIX,volccdn.com,REJECT
+
+# 桃源谷自建广告
+DOMAIN,adfile.taoyuangu.com,REJECT
