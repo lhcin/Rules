@@ -1,56 +1,56 @@
 /**
- * @title 桃源谷净化脚本 v3.1 (Safe Deep Clean)
- * @desc 深度清洗所有 CPS 接口，严格避开核心业务（视频/人脸）
- * @version 3.1.0
+ * @title 桃源谷净化脚本 v3.3 (Full Scan)
+ * @desc 深度清洗所有子域名的 CPS 推广及跳转链接
  */
 
 let body = $response.body;
 if (!body) $done({});
-let url = $request.url;
 
-// 【关键安全逻辑】
-// lxj.taoyuangu.com 域名下不仅有广告 (cpsApi)，还有视频门禁服务 (vdcs_hori)。
-// 必须严格限制只清洗 cpsApi 接口，否则视频流地址会被误杀，导致人脸开门黑屏。
-if (!url.includes("/cpsApi/")) {
-    // console.log("[TyCleaner] 非 CPS 请求，跳过清洗");
-    $done({});
-}
+let url = $request.url;
+// 打印日志方便调试
+console.log(`[TyCleaner] Scanning: ${url}`);
 
 try {
     let obj = JSON.parse(body);
 
-    // 定义需要清洗的跳转协议
-    const jump_schemes = ["alipays://", "weixin://", "alipay://", "openapp.alipay.com"];
-
-    // 深度清洗函数
+    // 递归清洗函数
     function deepClean(data) {
         if (!data) return data;
-
+        
+        // 处理对象和数组
         if (typeof data === 'object') {
             for (let key in data) {
                 let val = data[key];
                 
-                // 处理嵌套的 JSON 字符串 (例如 jsonStr 字段)
+                // 1. 处理嵌套的 JSON 字符串 (e.g. jsonStr: "[...]")
                 if (typeof val === 'string' && (val.startsWith('{') || val.startsWith('['))) {
                     try {
                         let nested = JSON.parse(val);
-                        nested = deepClean(nested);
-                        data[key] = JSON.stringify(nested);
+                        nested = deepClean(nested); // 递归清洗内部
+                        data[key] = JSON.stringify(nested); // 重新序列化回去
+                        console.log(`[TyCleaner] Unpacked and cleaned nested JSON at key: ${key}`);
                         continue;
-                    } catch (e) { /* not json */ }
+                    } catch (e) {
+                        // Ignore parse errors for non-json strings
+                    }
+                } else {
+                    // 2. 递归处理普通对象
+                    data[key] = deepClean(val);
                 }
-
-                data[key] = deepClean(val);
             }
             return data;
         }
 
+        // 3. 清洗字符串值 (URL Schemes)
         if (typeof data === 'string') {
             let lower = data.toLowerCase();
-            // 检查是否包含跳转协议
-            for (let s of jump_schemes) {
-                if (lower.includes(s)) {
-                    return ""; // 发现跳转链接，清空
+            // 拦截跳转协议 (alipays://, weixin://, etc.)
+            // 同时也拦截包含 'scheme' 或 'link' 关键字的 http 链接
+            if (lower.includes("alipay") || lower.includes("weixin") || lower.includes("scheme")) {
+                // 进一步确认它是链接
+                if (lower.includes("://") || lower.includes("http") || lower.includes(".com") || lower.includes(".cn")) {
+                    console.log(`[TyCleaner] Blocked suspicious link: ${data.substring(0, 50)}...`);
+                    return ""; // 清空该链接
                 }
             }
         }
@@ -58,12 +58,14 @@ try {
         return data;
     }
 
+    // 执行全量清洗
     obj = deepClean(obj);
     body = JSON.stringify(obj);
-    // console.log("[TyCleaner] Deep clean finished for CPS API");
 
 } catch (e) {
-    console.log("[TyCleaner] Error: " + e.message);
+    // JSON 解析失败，可能是非 JSON 响应或 GZIP 压缩数据
+    // Loon 通常会自动解压，如果这里报错，说明数据格式不支持
+    console.log(`[TyCleaner] JSON Parse Error: ${e.message}`);
 }
 
 $done({ body: body });
