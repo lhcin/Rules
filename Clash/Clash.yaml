@@ -126,7 +126,6 @@ proxy-groups:
     include-all: true
     interval: 120
     tolerance: 50
-    lazy: true
     filter: "(?i)(澳门|🇲🇴|港|🇭🇰|hk|hong)"
   - name: TW
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China.png
@@ -134,7 +133,6 @@ proxy-groups:
     include-all: true
     interval: 120
     tolerance: 50
-    lazy: true
     filter: "(?i)(台|🇹🇼|湾|taiwan)"
   - name: JP
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
@@ -142,7 +140,6 @@ proxy-groups:
     include-all: true
     interval: 120
     tolerance: 50
-    lazy: true
     filter: "(?i)(日|🇯🇵|东京|大阪|jp|japan)"
   - name: US
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
@@ -150,7 +147,6 @@ proxy-groups:
     include-all: true
     interval: 120
     tolerance: 50
-    lazy: true
     filter: "(?i)(美|🇺🇲|us|states|america)"
   - name: SG
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
@@ -158,7 +154,6 @@ proxy-groups:
     include-all: true
     interval: 120
     tolerance: 50
-    lazy: true
     filter: "(?i)(SG|坡|狮城|🇸🇬|singapore)"
   - name: Other_Regions
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/World_Map.png
@@ -166,7 +161,6 @@ proxy-groups:
     include-all: true
     interval: 120
     tolerance: 50
-    lazy: true
     filter: "(?i)(马|俄|印|德|土|阿|拿|菲|澳|爱|荷|瑞|巴|越|泰|柬|法|意|以|韩)"
 
   # 功能分组
