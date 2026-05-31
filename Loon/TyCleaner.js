@@ -1,63 +1,69 @@
 /**
- * @title 桃源谷净化脚本 v2
- * @desc 去除首页微信/支付宝/乐园等 CPS 推广入口
- * @author User
- * @version 2.0
+ * @title 桃源谷净化脚本 v3.1 (Safe Deep Clean)
+ * @desc 深度清洗所有 CPS 接口，严格避开核心业务（视频/人脸）
+ * @version 3.1.0
  */
 
-let url = $request.url;
 let body = $response.body;
+if (!body) $done({});
+let url = $request.url;
 
-// 提前记录日志
-console.log(`[TyCleaner] Intercepted: ${url}`);
-
-// 如果没有 body 或者不是 cpsApi 请求，直接原样返回
-if (!body) {
-    console.log("[TyCleaner] No body, passthrough");
+// 【关键安全逻辑】
+// lxj.taoyuangu.com 域名下不仅有广告 (cpsApi)，还有视频门禁服务 (vdcs_hori)。
+// 必须严格限制只清洗 cpsApi 接口，否则视频流地址会被误杀，导致人脸开门黑屏。
+if (!url.includes("/cpsApi/")) {
+    // console.log("[TyCleaner] 非 CPS 请求，跳过清洗");
     $done({});
 }
 
-// 只处理 cpsApi 相关请求
-if (!url.includes("cpsApi")) {
-    console.log("[TyCleaner] Not a cpsApi request, passthrough");
-    $done({});
-}
-
-// 尝试修改响应
 try {
     let obj = JSON.parse(body);
 
-    // 1. 清除明文推广按钮 (微信/支付宝/乐园入口)
-    // 接口: /cpsApi/openDoor/queryDoorBtnDataCache
-    if (url.includes("queryDoorBtnDataCache")) {
-        if (obj.data && obj.data.jsonStr) {
-            obj.data.jsonStr = "[]";
-            console.log("[TyCleaner] ✅ 已清除 queryDoorBtnDataCache");
+    // 定义需要清洗的跳转协议
+    const jump_schemes = ["alipays://", "weixin://", "alipay://", "openapp.alipay.com"];
+
+    // 深度清洗函数
+    function deepClean(data) {
+        if (!data) return data;
+
+        if (typeof data === 'object') {
+            for (let key in data) {
+                let val = data[key];
+                
+                // 处理嵌套的 JSON 字符串 (例如 jsonStr 字段)
+                if (typeof val === 'string' && (val.startsWith('{') || val.startsWith('['))) {
+                    try {
+                        let nested = JSON.parse(val);
+                        nested = deepClean(nested);
+                        data[key] = JSON.stringify(nested);
+                        continue;
+                    } catch (e) { /* not json */ }
+                }
+
+                data[key] = deepClean(val);
+            }
+            return data;
         }
+
+        if (typeof data === 'string') {
+            let lower = data.toLowerCase();
+            // 检查是否包含跳转协议
+            for (let s of jump_schemes) {
+                if (lower.includes(s)) {
+                    return ""; // 发现跳转链接，清空
+                }
+            }
+        }
+        
+        return data;
     }
 
-    // 2. 清除加密推广按钮
-    // 接口: /cpsApi/vdcs/servlet/queryDoorSort
-    if (url.includes("queryDoorSort")) {
-        if (obj.data) {
-            obj.data = "";
-            console.log("[TyCleaner] ✅ 已清除 queryDoorSort");
-        }
-    }
-
-    // 3. 关闭广告开关
-    // 接口: /cpsApi/vdcs/servlet/appAdOpenStatus
-    if (url.includes("appAdOpenStatus")) {
-        if (obj.data) {
-            obj.data.openStatus = "1";
-            console.log("[TyCleaner] ✅ 已修改 appAdOpenStatus");
-        }
-    }
-
+    obj = deepClean(obj);
     body = JSON.stringify(obj);
+    // console.log("[TyCleaner] Deep clean finished for CPS API");
 
 } catch (e) {
-    console.log(`[TyCleaner] ❌ Error: ${e.message}`);
+    console.log("[TyCleaner] Error: " + e.message);
 }
 
 $done({ body: body });
