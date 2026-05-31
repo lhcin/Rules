@@ -23,6 +23,7 @@ ipv6: false
 udp: true
 
 external-controller: 0.0.0.0:9090
+external-controller-secret: 'your-secret-here'
 
 geox-url:
   mmdb: 'https://gitlab.com/Masaiki/GeoIP2-CN/-/raw/release/Country.mmdb'
@@ -67,6 +68,14 @@ dns:
     - '*.local'
     - '*.msftncsi.com'
     - 'www.msftconnecttest.com'
+    - '*.ntp.org.cn'
+    - 'time.*.com'
+    - 'localhost.ptlogin2.qq.com'
+    - '*.stun.*.*'
+    - '*.stun.*.*.*'
+    - '*.stun.*.*.*.*'
+    - '*.stun.*.*.*.*.*'
+    - 'dns.msftncsi.com'
   default-nameserver:
     - 223.5.5.5
     - 114.114.114.114
@@ -75,20 +84,15 @@ dns:
     - https://doh.pub/dns-query
   nameserver-policy:
     '+.openai.com':
-      - https://8.8.8.8/dns-query
-      - https://1.1.1.1/dns-query
+      - https://doh.sb/dns-query
     '+.chatgpt.com':
-      - https://8.8.8.8/dns-query
-      - https://1.1.1.1/dns-query
+      - https://doh.sb/dns-query
     '+.anthropic.com':
-      - https://8.8.8.8/dns-query
-      - https://1.1.1.1/dns-query
+      - https://doh.sb/dns-query
     '+.claude.ai':
-      - https://8.8.8.8/dns-query
-      - https://1.1.1.1/dns-query
+      - https://doh.sb/dns-query
     '+.google.com':
-      - https://8.8.8.8/dns-query
-      - https://1.1.1.1/dns-query
+      - https://doh.sb/dns-query
   proxy-server-nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
@@ -108,14 +112,6 @@ proxy-providers:
       additional-prefix: "[clash.sub] " # 为订阅节点添加机场名称前缀
 proxy-groups:
   # 基于地区分组
-  - name: US
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
-    type: url-test
-    include-all: true
-    interval: 120
-    tolerance: 50
-    lazy: true
-    filter: "(?i)(美|🇺🇲|us|states|america)"
   - name: HK
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
     type: url-test
@@ -140,14 +136,14 @@ proxy-groups:
     tolerance: 50
     lazy: true
     filter: "(?i)(日|🇯🇵|东京|大阪|jp|japan)"
-  - name: KR
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Korea.png
+  - name: US
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
     type: url-test
     include-all: true
     interval: 120
     tolerance: 50
     lazy: true
-    filter: "(?i)(韩|🇰🇷|KR|korea)"
+    filter: "(?i)(美|🇺🇲|us|states|america)"
   - name: SG
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
     type: url-test
@@ -163,7 +159,7 @@ proxy-groups:
     interval: 120
     tolerance: 50
     lazy: true
-    filter: "(?i)(马|俄|印|德|土|阿|拿|菲|澳|爱|荷|瑞|巴|越|泰|柬|法|意|以|韩)"
+    filter: "(?i)(马|俄|印|德|土|阿|拿|菲|澳|爱|荷|瑞|巴|越|泰|柬|法|意|以)"
 
   # 功能分组
   - name: Default_Proxy
@@ -173,7 +169,6 @@ proxy-groups:
       - HK
       - TW
       - JP
-      - KR
       - US
       - SG
       - Other_Regions
@@ -215,6 +210,10 @@ rule-providers:
     <<: *RuleProviders
     path: './rules/Lan.yaml'
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml'
+  China:
+    <<: *RuleProviders
+    path: './rules/China.yaml'
+    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China.yaml'
   Telegram:
     <<: *RuleProviders
     path: './rules/Telegram.yaml'
@@ -249,7 +248,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml   
     
 rules:
-
   - RULE-SET,Gemini,Google
   - RULE-SET,Claude,US
   - RULE-SET,OpenAI,US
@@ -258,6 +256,7 @@ rules:
   - RULE-SET,Youtube,Google
   - RULE-SET,Apple,Apple
   - RULE-SET,Telegram,Telegram
+  - RULE-SET,China,DIRECT
   - RULE-SET,Lan,DIRECT
   - GEOIP,CN,DIRECT,no-resolve
   - MATCH,Default_Proxy
