@@ -15,7 +15,7 @@ hostname = *.taoyuangu.com
 
 [Script]
 # 去除 cpsApi 限制，扫描所有 taoyuangu.com 的 JSON 响应
-TyCleaner=type=http-response,pattern=taoyuangu\.com,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/lhcin/Rules/main/Loon/TyCleaner.js
+TyCleaner=type=http-response,pattern=taoyuangu\.com,requires-body=1,max-size=4194304,script-path=https://raw.githubusercontent.com/lhcin/Rules/main/Loon/TyCleaner.js
 
 [Rule]
 # === 桃源谷广告拦截规则 ===

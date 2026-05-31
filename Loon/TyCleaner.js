@@ -46,7 +46,7 @@ try {
             let lower = data.toLowerCase();
             // 拦截跳转协议 (alipays://, weixin://, etc.)
             // 同时也拦截包含 'scheme' 或 'link' 关键字的 http 链接
-            if (lower.includes("alipay") || lower.includes("weixin") || lower.includes("scheme")) {
+            if (lower.includes("alipay") || lower.includes("weixin")) {
                 // 进一步确认它是链接
                 if (lower.includes("://") || lower.includes("http") || lower.includes(".com") || lower.includes(".cn")) {
                     console.log(`[TyCleaner] Blocked suspicious link: ${data.substring(0, 50)}...`);
