@@ -95,8 +95,8 @@ dns:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
 
-# 锚点 - 节点订阅的参数 [每小时更新一次订阅节点，每 60 秒一次健康检查]
-NodeParam: &NodeParam {type: http, interval: 3600, health-check: {enable: true, url: 'http://www.google.com/blank.html', interval: 60}}
+# 锚点 - 节点订阅的参数 [每小时更新一次订阅节点，每 180 秒一次健康检查]
+NodeParam: &NodeParam {type: http, interval: 3600, health-check: {enable: true, url: 'http://www.google.com/blank.html', interval: 180}}
 # 锚点 - 规则参数 [每小时更新一次订阅规则，更新规则时使用直连策略]
 RuleProviders: &RuleProviders {type: http, behavior: classical, interval: 3600, format: yaml, proxy: DIRECT}
 
@@ -124,42 +124,42 @@ proxy-groups:
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
     type: url-test
     include-all: true
-    interval: 120
+    interval: 300
     tolerance: 50
     filter: "(?i)(澳门|🇲🇴|港|🇭🇰|hk|hong)"
   - name: TW
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China.png
     type: url-test
     include-all: true
-    interval: 120
+    interval: 300
     tolerance: 50
     filter: "(?i)(台|🇹🇼|湾|taiwan)"
   - name: JP
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
     type: url-test
     include-all: true
-    interval: 120
+    interval: 300
     tolerance: 50
     filter: "(?i)(日|🇯🇵|东京|大阪|jp|japan)"
   - name: US
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
     type: url-test
     include-all: true
-    interval: 120
+    interval: 300
     tolerance: 50
     filter: "(?i)(美|🇺🇲|us|states|america)"
   - name: SG
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
     type: url-test
     include-all: true
-    interval: 120
+    interval: 300
     tolerance: 50
     filter: "(?i)(SG|坡|狮城|🇸🇬|singapore)"
   - name: Other_Regions
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/World_Map.png
     type: url-test
     include-all: true
-    interval: 120
+    interval: 300
     tolerance: 50
     filter: "(?i)(马|俄|印|德|土|阿|拿|菲|澳|爱|荷|瑞|巴|越|泰|柬|法|意|以|韩)"
 
