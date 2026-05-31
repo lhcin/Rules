@@ -1,11 +1,16 @@
+#!name=桃源谷首页净化
+#!desc=去除 CPS 推广入口 (微信/支付宝/乐园)
+#!author=lhcin
+#!version=2.2.0
+
 [General]
 title = 桃源谷首页净化
 desc = 去除 CPS 推广入口 (微信/支付宝/乐园)
 author = lhcin
-version = 2.1.0
+version = 2.2.0
 
 [MITM]
 hostname = lxj.taoyuangu.com
 
 [Script]
-TyCleaner=type=http-response,pattern=lxj\.taoyuangu\.com,requires-body=1,script-path=https://raw.githubusercontent.com/lhcin/Rules/main/Loon/TyCleaner.js
+TyCleaner=type=http-response,pattern=^https:\/\/lxj\.taoyuangu\.com,requires-body=1,script-path=https://raw.githubusercontent.com/lhcin/Rules/main/Loon/TyCleaner.js
