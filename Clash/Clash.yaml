@@ -22,8 +22,7 @@ log-level: info
 ipv6: false
 udp: true
 
-external-controller: 0.0.0.0:9090
-external-controller-secret: 'your-secret-here'
+external-controller: 127.0.0.1:9090
 
 geox-url:
   mmdb: 'https://gitlab.com/Masaiki/GeoIP2-CN/-/raw/release/Country.mmdb'
@@ -75,7 +74,7 @@ dns:
     - '*.stun.*.*.*'
     - '*.stun.*.*.*.*'
     - '*.stun.*.*.*.*.*'
-    - 'dns.msftncsi.com'
+
   default-nameserver:
     - 223.5.5.5
     - 114.114.114.114
@@ -160,7 +159,7 @@ proxy-groups:
     interval: 120
     tolerance: 50
     lazy: true
-    filter: "(?i)(SG|坡|狮城|🇸🇬|sg|singapore)"
+    filter: "(?i)(SG|坡|狮城|🇸🇬|singapore)"
   - name: Other_Regions
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/World_Map.png
     type: url-test
@@ -264,7 +263,7 @@ rule-providers:
   OpenAI:
     <<: *RuleProviders
     path: './rules/OpenAI.yaml'
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml   
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml
     
 rules:
   - RULE-SET,Gemini,AI-IPDeep-Only
