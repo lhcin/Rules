@@ -38,7 +38,7 @@ TW Auto=url-test, 🇨🇳Taiwan, interval = 60, tolerance = 50, img-url = https
 JP Auto=url-test, 🇯🇵Japan, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
 SG Auto=url-test, 🇸🇬Singapore, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
 US Auto=url-test, 🇺🇸United States, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
-OW Auto=select, 🇨🇳OtherWise, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+OW Manual=select, 🇨🇳OtherWise, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
 # Manual Proxy
 #　HK Manual=select, 🇭🇰HongKong, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
 # TW Manual=select, 🇨🇳Taiwan, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
