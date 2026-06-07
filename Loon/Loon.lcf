@@ -18,7 +18,7 @@ resource-parser = https://raw.githubusercontent.com/sub-store-org/Sub-Store/rele
 geoip-url = https://raw.githubusercontent.com/Masaiki/GeoIP2-CN/release/Country.mmdb
 ipasn-url = https://raw.githubusercontent.com/P3TERX/GeoLite.mmdb/download/GeoLite2-ASN.mmdb
 skip-proxy = 127.0.0.1,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,100.64.0.0/10,localhost,*.local,*.bank,*.icbc,*.ccb,*.boc,*.cmbchina,*.abchina,*.bankcomm,*.psbc,*.cebbank,*.cmbc,*.cgbchina,*.spdb,*.hxb,*.czbank,*.nincha,*.bosc.cn,*.citic,*.gzcb,*.955*
-bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32, fe80::/10, ::1/128
+bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32, fe80::/10, ::1/128, *.bank, *.icbc, *.ccb, *.boc, *.cmbchina, *.abchina, *.bankcomm, *.psbc, *.cebbank, *.cgbchina, *.spdb, *.hxb, *.czbank, *.nincha, *.bosc.cn, *.citic, *.gzcb
 
 [Proxy]
 
