@@ -1,11 +1,7 @@
 # mihomo 配置
 # 适用版本：所有使用 mihomo 核心的程序
 
-port: 7890
-socks-port: 7891
-mixed-port: 7892
-redir-port: 7893
-tproxy-port: 7894
+mixed-port: 7897
 
 unified-delay: true
 geodata-mode: false
@@ -44,9 +40,6 @@ tun:
 # ────────────────────────────────────────────────────────────
 sniffer:
   enable: true
-  force-dns-mapping: true    # 用嗅探到的 SNI 覆盖 DNS 映射
-  parse-pure-ip: true        # 对没有 DNS 记录的连接也进行嗅探
-  override-destination: true
   sniff:
     TLS:
       ports: [443, 8443]
@@ -54,6 +47,9 @@ sniffer:
       ports: [80, 8080-8880]
     QUIC:
       ports: [443, 8443]
+  skip-domain:
+    - "Mijia Cloud"
+    - "+.push.apple.com"      
 
 dns:
   enable: true
@@ -83,19 +79,24 @@ dns:
     - 223.5.5.5
     - 114.114.114.114
 
-# 锚点 - 节点订阅的参数 [每小时更新一次订阅节点，每 180 秒一次健康检查]
-NodeParam: &NodeParam {type: http, interval: 3600, health-check: {enable: true, url: 'https://www.gstatic.com/generate_204', interval: 180}}
-# 锚点 - 规则参数 [每小时更新一次订阅规则，更新规则时使用直连策略]
-RuleProviders: &RuleProviders {type: http, behavior: classical, interval: 3600, format: yaml, proxy: DIRECT}
+# 锚点 - 节点订阅的参数 [每天更新一次订阅节点，每 600 秒一次健康检查]
+NodeParam: &NodeParam {type: http, interval: 86400, health-check: {enable: true, url: 'https://www.gstatic.com/generate_204', interval: 600}}
+# 锚点 - 规则参数 [每天更新一次订阅规则，更新规则时使用直连策略]
+RuleProviders: &RuleProviders {type: http, behavior: classical, interval: 86400, format: yaml, proxy: DIRECT}
 
 proxy-providers:
   sub-url:
     url: 'sub.url'
     <<: *NodeParam
-    path: './proxy_providers/clash.sub.yaml'
+    path: './proxy_providers/sub1.yaml'
     override:
-      additional-prefix: "[clash.sub] " # 为订阅节点添加机场名称前缀
-
+      additional-prefix: "[clash.sub1] " # 为订阅节点添加机场名称前缀
+  sub2-url:
+    url: 'sub2.url'
+    <<: *NodeParam
+    path: './proxy_providers/sub2.yaml'
+    override:
+      additional-prefix: "[clash.sub2] " # 为订阅节点添加机场名称前缀
 proxy-groups:
   # 基于地区分组
   - name: HK
