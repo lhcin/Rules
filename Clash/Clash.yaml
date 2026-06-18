@@ -82,7 +82,7 @@ dns:
 # 锚点 - 节点订阅的参数 [每天更新一次订阅节点，每 600 秒一次健康检查]
 NodeParam: &NodeParam {type: http, interval: 86400, health-check: {enable: true, url: 'https://www.gstatic.com/generate_204', interval: 600}}
 # 锚点 - fallback 参数配置 [每 300 秒一次惰性健康检查，时延超过 2 秒判定为失败，失败 3 次自动触发健康检查]
-FallBack: &FallBack {type: fallback, url: 'https://www.gstatic.com/generate_204', interval: 300, lazy: true, timeout: 2000, disable-udp: false, max-failed-times: 3, hidden: true, include-all: true}
+FallBack: &FallBack {type: fallback, url: 'https://www.gstatic.com/generate_204', interval: 300, lazy: true, timeout: 2000, disable-udp: false, max-failed-times: 3, hidden: false, include-all: true}
 # 锚点 - 规则参数 [每天更新一次订阅规则，更新规则时使用直连策略]
 RuleProviders: &RuleProviders {type: http, behavior: classical, interval: 86400, format: yaml, proxy: DIRECT}
 
