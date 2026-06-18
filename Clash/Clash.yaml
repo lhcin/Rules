@@ -112,43 +112,43 @@ proxy-groups:
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
     type: select
     proxies:
-      - HK-AutoTest
       - HK-Fallback
+      - HK-AutoTest
 
   - name: TW
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China.png
     type: select
     proxies:
-      - TW-AutoTest
       - TW-Fallback
+      - TW-AutoTest
 
   - name: JP
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
     type: select
     proxies:
-      - JP-AutoTest
       - JP-Fallback
+      - JP-AutoTest
 
   - name: US
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
     type: select
     proxies:
-      - US-AutoTest
       - US-Fallback
+      - US-AutoTest
 
   - name: SG
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
     type: select
     proxies:
-      - SG-AutoTest
       - SG-Fallback
+      - SG-AutoTest
 
   - name: Others
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/World_Map.png
     type: select
     proxies:
-      - Other-AutoTest
       - Other-Fallback
+      - Other-AutoTest
 
   # ────────────────────────────────────────────────────────────
   # 全局智能回退组 - 地区全部不可用时自动转移到其他地区
