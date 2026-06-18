@@ -1,11 +1,7 @@
 # mihomo 配置
 # 适用版本：所有使用 mihomo 核心的程序
 
-port: 7890
-socks-port: 7891
-mixed-port: 7892
-redir-port: 7893
-tproxy-port: 7894
+mixed-port: 7897
 
 unified-delay: true
 geodata-mode: false
@@ -44,9 +40,6 @@ tun:
 # ────────────────────────────────────────────────────────────
 sniffer:
   enable: true
-  force-dns-mapping: true    # 用嗅探到的 SNI 覆盖 DNS 映射
-  parse-pure-ip: true        # 对没有 DNS 记录的连接也进行嗅探
-  override-destination: true
   sniff:
     TLS:
       ports: [443, 8443]
@@ -54,6 +47,9 @@ sniffer:
       ports: [80, 8080-8880]
     QUIC:
       ports: [443, 8443]
+  skip-domain:
+    - "Mijia Cloud"
+    - "+.push.apple.com"
 
 dns:
   enable: true
@@ -83,10 +79,12 @@ dns:
     - 223.5.5.5
     - 114.114.114.114
 
-# 锚点 - 节点订阅的参数 [每小时更新一次订阅节点，每 180 秒一次健康检查]
-NodeParam: &NodeParam {type: http, interval: 3600, health-check: {enable: true, url: 'https://www.gstatic.com/generate_204', interval: 180}}
-# 锚点 - 规则参数 [每小时更新一次订阅规则，更新规则时使用直连策略]
-RuleProviders: &RuleProviders {type: http, behavior: classical, interval: 3600, format: yaml, proxy: DIRECT}
+# 锚点 - 节点订阅的参数 [每天更新一次订阅节点，每 600 秒一次健康检查]
+NodeParam: &NodeParam {type: http, interval: 86400, health-check: {enable: true, url: 'https://www.gstatic.com/generate_204', interval: 600}}
+# 锚点 - fallback 参数配置 [每 300 秒一次惰性健康检查，时延超过 2 秒判定为失败，失败 3 次自动触发健康检查]
+FallBack: &FallBack {type: fallback, url: 'https://www.gstatic.com/generate_204', interval: 300, lazy: true, timeout: 2000, disable-udp: false, max-failed-times: 3, hidden: true, include-all: true}
+# 锚点 - 规则参数 [每天更新一次订阅规则，更新规则时使用直连策略]
+RuleProviders: &RuleProviders {type: http, behavior: classical, interval: 86400, format: yaml, proxy: DIRECT}
 
 proxy-providers:
   sub-url:
@@ -107,67 +105,182 @@ proxies:
     dialer-proxy: US
 
 proxy-groups:
-  # 基于地区分组
-  - name: HK
+  # ────────────────────────────────────────────────────────────
+  # 地区分组 - 自动选择 (url-test，延迟最低)
+  # ────────────────────────────────────────────────────────────
+  - name: HK-AutoTest
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
     type: url-test
     include-all: true
     interval: 300
     tolerance: 50
     filter: "(?i)(澳门|🇲🇴|港|🇭🇰|hk|hong)"
-  - name: TW
+    hidden: true
+
+  - name: TW-AutoTest
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China.png
     type: url-test
     include-all: true
     interval: 300
     tolerance: 50
     filter: "(?i)(台|🇹🇼|湾|taiwan)"
-  - name: JP
+    hidden: true
+
+  - name: JP-AutoTest
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
     type: url-test
     include-all: true
     interval: 300
     tolerance: 50
     filter: "(?i)(日|🇯🇵|东京|大阪|jp|japan)"
-  - name: US
+    hidden: true
+
+  - name: US-AutoTest
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
     type: url-test
     include-all: true
     interval: 300
     tolerance: 50
     filter: "(?i)(美|🇺🇲|us|states|america)"
-  - name: SG
+    hidden: true
+
+  - name: SG-AutoTest
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
     type: url-test
     include-all: true
     interval: 300
     tolerance: 50
     filter: "(?i)(SG|坡|狮城|🇸🇬|singapore)"
-  - name: Other_Regions
+    hidden: true
+
+  - name: Other-AutoTest
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/World_Map.png
     type: url-test
     include-all: true
     interval: 300
     tolerance: 50
     filter: "(?i)(马|俄|印|德|土|阿|拿|菲|澳|爱|荷|瑞|巴|越|泰|柬|法|意|以|韩)"
+    hidden: true
 
+  # ────────────────────────────────────────────────────────────
+  # 地区分组 - 自动回退 (fallback，节点不可用时切换同地区其他节点)
+  # ────────────────────────────────────────────────────────────
+  - name: HK-Fallback
+    <<: *FallBack
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
+    filter: "(?i)(澳门|🇲🇴|港|🇭🇰|hk|hong)"
+
+  - name: TW-Fallback
+    <<: *FallBack
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China.png
+    filter: "(?i)(台|🇹🇼|湾|taiwan)"
+
+  - name: JP-Fallback
+    <<: *FallBack
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
+    filter: "(?i)(日|🇯🇵|东京|大阪|jp|japan)"
+
+  - name: US-Fallback
+    <<: *FallBack
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
+    filter: "(?i)(美|🇺🇲|us|states|america)"
+
+  - name: SG-Fallback
+    <<: *FallBack
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
+    filter: "(?i)(SG|坡|狮城|🇸🇬|singapore)"
+
+  - name: Other-Fallback
+    <<: *FallBack
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/World_Map.png
+    filter: "(?i)(马|俄|印|德|土|阿|拿|菲|澳|爱|荷|瑞|巴|越|泰|柬|法|意|以|韩)"
+
+  # ────────────────────────────────────────────────────────────
+  # 地区综合选择组 (可选择 AutoTest 或 Fallback 策略)
+  # ────────────────────────────────────────────────────────────
+  - name: HK
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
+    type: select
+    proxies:
+      - HK-AutoTest
+      - HK-Fallback
+
+  - name: TW
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China.png
+    type: select
+    proxies:
+      - TW-AutoTest
+      - TW-Fallback
+
+  - name: JP
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
+    type: select
+    proxies:
+      - JP-AutoTest
+      - JP-Fallback
+
+  - name: US
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
+    type: select
+    proxies:
+      - US-AutoTest
+      - US-Fallback
+
+  - name: SG
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
+    type: select
+    proxies:
+      - SG-AutoTest
+      - SG-Fallback
+
+  - name: Others
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/World_Map.png
+    type: select
+    proxies:
+      - Other-AutoTest
+      - Other-Fallback
+
+  # ────────────────────────────────────────────────────────────
+  # 全局智能回退组 - 地区全部不可用时自动转移到其他地区
+  # ────────────────────────────────────────────────────────────
+  - name: Global-Fallback
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
+    type: fallback
+    url: 'https://www.gstatic.com/generate_204'
+    interval: 300
+    lazy: true
+    timeout: 2000
+    max-failed-times: 3
+    proxies:
+      - HK-Fallback
+      - TW-Fallback
+      - JP-Fallback
+      - US-Fallback
+      - SG-Fallback
+      - Other-Fallback
+
+  # ────────────────────────────────────────────────────────────
   # 功能分组
+  # ────────────────────────────────────────────────────────────
   - name: "AI-IPDeep-Only"
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png
     type: select
     proxies:
       - IPDeep-Claude
+
   - name: Default_Proxy
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
     type: select
     proxies:
+      - Global-Fallback
       - HK
       - TW
       - JP
       - US
       - SG
-      - Other_Regions
+      - Others
       - IPDeep-Claude
+
   - name: Google
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png
     type: select
@@ -177,6 +290,7 @@ proxy-groups:
       - HK
       - TW
       - Default_Proxy
+
   - name: Apple
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Apple.png
     type: select
@@ -186,7 +300,8 @@ proxy-groups:
       - HK
       - JP
       - US
-      - Other_Regions
+      - Others
+
   - name: Telegram
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Telegram.png
     type: select
@@ -195,6 +310,7 @@ proxy-groups:
       - Default_Proxy
       - HK
       - US
+
   - name: Github
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/GitHub.png
     type: select
@@ -209,10 +325,6 @@ rule-providers:
     <<: *RuleProviders
     path: './rules/Lan.yaml'
     url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml'
-  China:
-    <<: *RuleProviders
-    path: './rules/China.yaml'
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China.yaml'
   Telegram:
     <<: *RuleProviders
     path: './rules/Telegram.yaml'
@@ -248,7 +360,6 @@ rule-providers:
 
 rules:
   - RULE-SET,Lan,DIRECT
-  - RULE-SET,China,DIRECT
   - RULE-SET,Gemini,AI-IPDeep-Only
   - RULE-SET,Claude,AI-IPDeep-Only
   - RULE-SET,OpenAI,AI-IPDeep-Only
