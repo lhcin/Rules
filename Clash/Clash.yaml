@@ -110,7 +110,7 @@ proxy-groups:
     interval: 300
     tolerance: 50
     filter: "(?i)(澳门|🇲🇴|港|🇭🇰|hk|hong)"
-    hidden: true
+    hidden: false
 
   - name: TW-AutoTest
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China.png
@@ -119,7 +119,7 @@ proxy-groups:
     interval: 300
     tolerance: 50
     filter: "(?i)(台|🇹🇼|湾|taiwan)"
-    hidden: true
+    hidden: false
 
   - name: JP-AutoTest
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
@@ -128,7 +128,7 @@ proxy-groups:
     interval: 300
     tolerance: 50
     filter: "(?i)(日|🇯🇵|东京|大阪|jp|japan)"
-    hidden: true
+    hidden: false
 
   - name: US-AutoTest
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
@@ -137,7 +137,7 @@ proxy-groups:
     interval: 300
     tolerance: 50
     filter: "(?i)(美|🇺🇲|us|states|america)"
-    hidden: true
+    hidden: false
 
   - name: SG-AutoTest
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
@@ -146,7 +146,7 @@ proxy-groups:
     interval: 300
     tolerance: 50
     filter: "(?i)(SG|坡|狮城|🇸🇬|singapore)"
-    hidden: true
+    hidden: false
 
   - name: Other-AutoTest
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/World_Map.png
@@ -155,7 +155,7 @@ proxy-groups:
     interval: 300
     tolerance: 50
     filter: "(?i)(马|俄|印|德|土|阿|拿|菲|澳|爱|荷|瑞|巴|越|泰|柬|法|意|以|韩)"
-    hidden: true
+    hidden: false
 
   # ────────────────────────────────────────────────────────────
   # 地区分组 - 自动回退 (fallback，节点不可用时切换同地区其他节点)
@@ -255,6 +255,14 @@ proxy-groups:
       - Other-Fallback
 
   # ────────────────────────────────────────────────────────────
+  # 全部节点分组 - 可查看所有单一节点
+  # ────────────────────────────────────────────────────────────
+  - name: All Nodes
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/World_Map.png
+    type: select
+    include-all: true
+
+  # ────────────────────────────────────────────────────────────
   # 功能分组 (保持原有功能，增加 fallback 选项)
   # ────────────────────────────────────────────────────────────
   - name: Default_Proxy
@@ -268,6 +276,7 @@ proxy-groups:
       - US
       - SG
       - Others
+      - All Nodes
 
   - name: Google
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png
