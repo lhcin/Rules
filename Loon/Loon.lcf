@@ -46,18 +46,13 @@ JP Fallback=fallback, 🇯🇵Japan, interval=60, max-timeout=2000, img-url=http
 SG Fallback=fallback, 🇸🇬Singapore, interval=60, max-timeout=2000, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
 US Fallback=fallback, 🇺🇸United States, interval=60, max-timeout=2000, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 # --- Auto (select: choose between latency priority and fallback) ---
-HK Auto=select, HK Latency Priority, HK Fallback, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+HK Auto=select, HK Fallback, HK Latency Priority, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
 TW Auto=select, TW Latency Priority, TW Fallback, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
 JP Auto=select, JP Latency Priority, JP Fallback, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
 SG Auto=select, SG Latency Priority, SG Fallback, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
-US Auto=select, 🇺🇸United States, US Latency Priority, US Fallback, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
-OW Manual=select, 🇨🇳OtherWise, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+US Auto=select, US Fallback, US Latency Priority, 🇺🇸United States, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 # --- Manual Proxy ---
-# HK Manual=select, 🇭🇰HongKong, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
-# TW Manual=select, 🇨🇳Taiwan, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
-# JP Manual=select, 🇯🇵Japan, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
-# SG Manual=select, 🇸🇬Singapore, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
-US Manual=select, 🇺🇸United States, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+OW Manual=select, 🇨🇳OtherWise, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
 # --- Fallback (final) ---
 FB=fallback, HK Auto, US Auto, TW Auto, SG Auto, OW Manual, interval=60, max-timeout=2000, img-url=https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/fallback.png
 
@@ -100,7 +95,6 @@ https://kelee.one/Tool/Loon/Lpx/SF-Express_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/FleaMarket_remove_ads.lpx, enabled=true
 # https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/plugin/HTTPDNS.Block.plugin, enabled=false
 # https://raw.githubusercontent.com/fmz200/wool_scripts/main/Loon/plugin/blockAds.plugin, enabled=true
-https://kelee.one/Tool/Loon/Plugin/Bilibili_remove_ads.plugin, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Node_detection_tool.lpx, enabled=true
 https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.loon.plugin, policy=HK Auto, enabled=true
 https://raw.githubusercontent.com/sub-store-org/Sub-Store/master/config/Loon.plugin, policy=HK Auto, enabled=true
