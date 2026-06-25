@@ -33,22 +33,22 @@ bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/
 🇨🇳OtherWise=NameRegex, FilterKey="^(?=.*((?i)马|俄|印|德|土|阿|拿|菲|澳|爱|荷|瑞|巴|越|泰|柬|法|意|以|韩))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
 
 [Proxy Group]
-HK Auto=url-test, 🇭🇰HongKong, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+HK Auto=fallback, 🇭🇰HongKong, interval=60, max-timeout=2000, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
 TW Auto=url-test, 🇨🇳Taiwan, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
 JP Auto=url-test, 🇯🇵Japan, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
 SG Auto=url-test, 🇸🇬Singapore, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
-US Auto=url-test, 🇺🇸United States, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+# US Auto=url-test, 🇺🇸United States, interval = 60, tolerance = 50, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 OW Manual=select, 🇨🇳OtherWise, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
 # Manual Proxy
 #　HK Manual=select, 🇭🇰HongKong, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
 # TW Manual=select, 🇨🇳Taiwan, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
 # JP Manual=select, 🇯🇵Japan, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
 # SG Manual=select, 🇸🇬Singapore, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
-# US Manual=select, 🇺🇸United States, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+US Manual=select, 🇺🇸United States, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 # OW Manual=select, 🇨🇳OtherWise, img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
 
 # Fallback
-FB=fallback, HK Auto, TW Auto, SG Auto, US Auto, interval=60, max-timeout=2000, img-url=https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/fallback.png
+FB=fallback, HK Auto, US Auto, TW Auto, SG Auto, OW Manual, interval=60, max-timeout=2000, img-url=https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/fallback.png
 
 [Rule]
 FINAL, FB
