@@ -147,9 +147,9 @@ proxy-groups:
     max-failed-times: 3
     proxies:
       - HK_Fallback
+      - US_Fallback
       - TW_Fallback
       - JP_Fallback
-      - US_Fallback
       - SG_Fallback
       - Other_Fallback
 
@@ -242,8 +242,8 @@ rule-providers:
 rules:
   - RULE-SET,Lan,DIRECT
   - RULE-SET,Gemini,Google
-  - RULE-SET,Claude,US
-  - RULE-SET,OpenAI,US
+  - RULE-SET,Claude,US_Fallback
+  - RULE-SET,OpenAI,US_Fallback
   - RULE-SET,Github,Github
   - RULE-SET,Google,Google
   - RULE-SET,Youtube,Google
