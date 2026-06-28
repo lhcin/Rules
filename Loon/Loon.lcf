@@ -60,8 +60,8 @@ FB=fallback, HK Auto, US Auto, TW Auto, SG Auto, OW Manual, interval=60, max-tim
 FINAL, FB
 
 [Remote Rule]
-# https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/China/China.list, policy=DIRECT, tag=China, enabled=true
-# https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/China/China_Domain.list, policy=DIRECT, tag=China_Domain, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/China/China.list, policy=DIRECT, tag=China, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/China/China_Domain.list, policy=DIRECT, tag=China_Domain, enabled=true
 # https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/OpenAI/OpenAI.list, policy=US Auto, tag=OpenAI, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Google/Google.list, policy=US Auto, tag=Google, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/GitHub/GitHub.list, policy=HK Auto, tag=GitHub, enabled=true
@@ -103,7 +103,5 @@ https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-
 [Mitm]
 hostname =
 ca-p12 =
-ca-passphrase=
-skip-server-cert-verify=false
 ca-passphrase =
 skip-server-cert-verify = false
