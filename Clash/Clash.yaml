@@ -107,7 +107,8 @@ proxy-groups:
     <<: *FallBack
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
     filter: "(?i)(澳门|🇲🇴|港|🇭🇰|hk|hong)"
-
+    hidden: false
+    
   - name: TW_Fallback
     <<: *FallBack
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China.png
