@@ -101,54 +101,43 @@ proxy-providers:
       additional-prefix: "[clash.sub2] " # 为订阅节点添加机场名称前缀
 proxy-groups:
   # ────────────────────────────────────────────────────────────
-  # 地区综合选择组 (可选择 AutoTest 或 Fallback 策略)
+  # 地区分组 - 自动回退 (fallback，节点不可用时切换同地区其他节点)
   # ────────────────────────────────────────────────────────────
-  - name: HK
+  - name: HK_Fallback
+    <<: *FallBack
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
-    type: select
-    proxies:
-      - HK-Fallback
-      - HK-AutoTest
+    filter: "(?i)(澳门|🇲🇴|港|🇭🇰|hk|hong)"
 
-  - name: TW
+  - name: TW_Fallback
+    <<: *FallBack
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China.png
-    type: select
-    proxies:
-      - TW-Fallback
-      - TW-AutoTest
+    filter: "(?i)(台|🇹🇼|湾|taiwan)"
 
-  - name: JP
+  - name: JP_Fallback
+    <<: *FallBack
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
-    type: select
-    proxies:
-      - JP-Fallback
-      - JP-AutoTest
+    filter: "(?i)(日|🇯🇵|东京|大阪|jp|japan)"
 
-  - name: US
+  - name: US_Fallback
+    <<: *FallBack
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
-    type: select
-    proxies:
-      - US-Fallback
-      - US-AutoTest
-
-  - name: SG
+    filter: "(?i)(美|🇺🇲|us|states|america)"
+    hidden: false
+    
+  - name: SG_Fallback
+    <<: *FallBack
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
-    type: select
-    proxies:
-      - SG-Fallback
-      - SG-AutoTest
+    filter: "(?i)(SG|坡|狮城|🇸🇬|singapore)"
 
-  - name: Others
+  - name: Other_Fallback
+    <<: *FallBack
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/World_Map.png
-    type: select
-    proxies:
-      - Other-Fallback
-      - Other-AutoTest
+    filter: "(?i)(马|俄|印|德|土|阿|拿|菲|澳|爱|荷|瑞|巴|越|泰|柬|法|意|以|韩)"
 
   # ────────────────────────────────────────────────────────────
   # 全局智能回退组 - 地区全部不可用时自动转移到其他地区
   # ────────────────────────────────────────────────────────────
-  - name: Global-Fallback
+  - name: Global_Fallback
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
     type: fallback
     url: 'https://www.gstatic.com/generate_204'
@@ -157,35 +146,34 @@ proxy-groups:
     timeout: 2000
     max-failed-times: 3
     proxies:
-      - HK-Fallback
-      - TW-Fallback
-      - JP-Fallback
-      - US-Fallback
-      - SG-Fallback
-      - Other-Fallback
+      - HK_Fallback
+      - TW_Fallback
+      - JP_Fallback
+      - US_Fallback
+      - SG_Fallback
+      - Other_Fallback
 
-  # ────────────────────────────────────────────────────────────
+ # ────────────────────────────────────────────────────────────
   # 功能分组
   # ────────────────────────────────────────────────────────────
   - name: Default_Proxy
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
     type: select
     proxies:
-      - Global-Fallback
-      - HK
-      - TW
-      - JP
-      - US
-      - SG
-      - Others
+      - HK_Fallback
+      - US_Fallback
+      - TW_Fallback
+      - JP_Fallback
+      - SG_Fallback
+      - Other_Fallback
+      - Global_Fallback
 
   - name: Google
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png
     type: select
     proxies:
-      - US
-      - HK
-      - TW
+      - US_Fallback
+      - HK_Fallback
       - Default_Proxy
 
   - name: Apple
@@ -194,117 +182,25 @@ proxy-groups:
     proxies:
       - DIRECT
       - Default_Proxy
-      - HK
-      - JP
-      - US
-      - Others
+      - HK_Fallback
+      - US_Fallback
 
   - name: Telegram
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Telegram.png
     type: select
     proxies:
       - Default_Proxy
-      - HK
-      - US
+      - HK_Fallback
+      - US_Fallback
 
   - name: Github
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/GitHub.png
     type: select
     proxies:
       - Default_Proxy
-      - HK
-      - US
-
-  # ────────────────────────────────────────────────────────────
-  # 地区分组 - 自动选择 (url-test，延迟最低，可见)
-  # ────────────────────────────────────────────────────────────
-  - name: HK-AutoTest
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
-    type: url-test
-    include-all: true
-    interval: 300
-    tolerance: 50
-    filter: "(?i)(澳门|🇲🇴|港|🇭🇰|hk|hong)"
-    hidden: false
-
-  - name: TW-AutoTest
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China.png
-    type: url-test
-    include-all: true
-    interval: 300
-    tolerance: 50
-    filter: "(?i)(台|🇹🇼|湾|taiwan)"
-    hidden: false
-
-  - name: JP-AutoTest
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
-    type: url-test
-    include-all: true
-    interval: 300
-    tolerance: 50
-    filter: "(?i)(日|🇯🇵|东京|大阪|jp|japan)"
-    hidden: false
-
-  - name: US-AutoTest
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
-    type: url-test
-    include-all: true
-    interval: 300
-    tolerance: 50
-    filter: "(?i)(美|🇺🇲|us|states|america)"
-    hidden: false
-
-  - name: SG-AutoTest
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
-    type: url-test
-    include-all: true
-    interval: 300
-    tolerance: 50
-    filter: "(?i)(SG|坡|狮城|🇸🇬|singapore)"
-    hidden: false
-
-  - name: Other-AutoTest
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/World_Map.png
-    type: url-test
-    include-all: true
-    interval: 300
-    tolerance: 50
-    filter: "(?i)(马|俄|印|德|土|阿|拿|菲|澳|爱|荷|瑞|巴|越|泰|柬|法|意|以|韩)"
-    hidden: false
-
-  # ────────────────────────────────────────────────────────────
-  # 地区分组 - 自动回退 (fallback，节点不可用时切换同地区其他节点，隐藏)
-  # ────────────────────────────────────────────────────────────
-  - name: HK-Fallback
-    <<: *FallBack
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
-    filter: "(?i)(澳门|🇲🇴|港|🇭🇰|hk|hong)"
-
-  - name: TW-Fallback
-    <<: *FallBack
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/China.png
-    filter: "(?i)(台|🇹🇼|湾|taiwan)"
-
-  - name: JP-Fallback
-    <<: *FallBack
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
-    filter: "(?i)(日|🇯🇵|东京|大阪|jp|japan)"
-
-  - name: US-Fallback
-    <<: *FallBack
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
-    filter: "(?i)(美|🇺🇲|us|states|america)"
-
-  - name: SG-Fallback
-    <<: *FallBack
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
-    filter: "(?i)(SG|坡|狮城|🇸🇬|singapore)"
-
-  - name: Other-Fallback
-    <<: *FallBack
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/World_Map.png
-    filter: "(?i)(马|俄|印|德|土|阿|拿|菲|澳|爱|荷|瑞|巴|越|泰|柬|法|意|以|韩)"
-
+      - HK_Fallback
+      - US_Fallback
+      
 rule-providers:
   Lan:
     <<: *RuleProviders
