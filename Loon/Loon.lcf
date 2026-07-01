@@ -17,8 +17,8 @@ proxy-test-url = https://www.gstatic.com/generate_204
 resource-parser = https://raw.githubusercontent.com/sub-store-org/Sub-Store/release/sub-store-parser.loon.min.js
 geoip-url = https://raw.githubusercontent.com/Masaiki/GeoIP2-CN/release/Country.mmdb
 ipasn-url = https://raw.githubusercontent.com/P3TERX/GeoLite.mmdb/download/GeoLite2-ASN.mmdb
-skip-proxy = 127.0.0.1,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,100.64.0.0/10,localhost,*.local,*.bank,*.icbc,*.ccb,*.boc,*.cmbchina,*.abchina,*.bankcomm,*.psbc,*.cebbank,*.cmbc,*.cgbchina,*.spdb,*.hxb,*.czbank,*.nincha,*.bosc.cn,*.citic,*.gzcb,*.955*
-bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32, fe80::/10, ::1/128, *.bank, *.icbc, *.ccb, *.boc, *.cmbchina, *.abchina, *.bankcomm, *.psbc, *.cebbank, *.cgbchina, *.spdb, *.hxb, *.czbank, *.nincha, *.bosc.cn, *.citic, *.gzcb
+skip-proxy = 192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,100.64.0.0/10,localhost,*.local
+bypass-tun = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.18.0.0/15,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,255.255.255.255/32
 
 [Proxy]
 
@@ -33,28 +33,22 @@ bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/
 🇨🇳OtherWise=NameRegex, FilterKey="^(?=.*((?i)马|俄|印|德|土|阿|拿|菲|澳|爱|荷|瑞|巴|越|泰|柬|法|意|以|韩))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
 
 [Proxy Group]
-# --- Latency Priority (url-test) ---
-HK Latency Priority=url-test, 🇭🇰HongKong, interval=60, tolerance=50, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
-TW Latency Priority=url-test, 🇨🇳Taiwan, interval=60, tolerance=50, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
-JP Latency Priority=url-test, 🇯🇵Japan, interval=60, tolerance=50, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
-SG Latency Priority=url-test, 🇸🇬Singapore, interval=60, tolerance=50, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
-US Latency Priority=url-test, 🇺🇸United States, interval=60, tolerance=50, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 # --- Fallback (fault tolerance) ---
-HK Fallback=fallback, 🇭🇰HongKong, interval=60, max-timeout=2000, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
-TW Fallback=fallback, 🇨🇳Taiwan, interval=60, max-timeout=2000, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
-JP Fallback=fallback, 🇯🇵Japan, interval=60, max-timeout=2000, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
-SG Fallback=fallback, 🇸🇬Singapore, interval=60, max-timeout=2000, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
-US Fallback=fallback, 🇺🇸United States, interval=60, max-timeout=2000, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+HK Fallback=fallback, 🇭🇰HongKong, interval=600, max-timeout=2000, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+TW Fallback=fallback, 🇨🇳Taiwan, interval=600, max-timeout=2000, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
+JP Fallback=fallback, 🇯🇵Japan, interval=600, max-timeout=2000, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+SG Fallback=fallback, 🇸🇬Singapore, interval=600, max-timeout=2000, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+US Fallback=fallback, 🇺🇸United States, interval=600, max-timeout=2000, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 # --- Auto (select: choose between latency priority and fallback) ---
-HK Auto=select, HK Fallback, HK Latency Priority, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
-TW Auto=select, TW Latency Priority, TW Fallback, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
-JP Auto=select, JP Latency Priority, JP Fallback, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
-SG Auto=select, SG Latency Priority, SG Fallback, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
-US Auto=select, US Fallback, US Latency Priority, 🇺🇸United States, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+# HK Auto=select, HK Fallback, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+# TW Auto=select, TW Fallback, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
+# JP Auto=select, JP Fallback, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+# SG Auto=select, SG Fallback, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+US Auto=select, US Fallback, 🇺🇸United States, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 # --- Manual Proxy ---
 OW Manual=select, 🇨🇳OtherWise, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
 # --- Fallback (final) ---
-FB=fallback, HK Auto, US Auto, TW Auto, SG Auto, OW Manual, interval=60, max-timeout=2000, img-url=https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/fallback.png
+FB=fallback, HK Fallback, US Fallback, TW Fallback, SG Fallback, OW Manual, interval=600, max-timeout=2000, img-url=https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/fallback.png
 
 [Rule]
 FINAL, FB
@@ -64,10 +58,10 @@ https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/China/China_Domain.list, policy=DIRECT, tag=China_Domain, enabled=true
 # https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/OpenAI/OpenAI.list, policy=US Auto, tag=OpenAI, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Google/Google.list, policy=US Auto, tag=Google, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/GitHub/GitHub.list, policy=HK Auto, tag=GitHub, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/GitHub/GitHub.list, policy=HK Fallback, tag=GitHub, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/YouTube/YouTube.list, policy=US Auto, tag=YouTube, enabled=true
-# https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/OneDrive/OneDrive.list, policy=HK Auto, tag=OneDrive, enabled=true
-# https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/ProxyLite/ProxyLite.list, policy=HK Auto, tag=Proxy, enabled=true
+# https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/OneDrive/OneDrive.list, policy=HK Fallback, tag=OneDrive, enabled=true
+# https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/ProxyLite/ProxyLite.list, policy=HK Fallback, tag=Proxy, enabled=true
 https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy=US Auto, tag=AI, enabled=true
 https://kelee.one/Tool/Loon/Lsr/LAN_SPLITTER.lsr, policy=DIRECT, tag=LAN, enabled=true
 https://kelee.one/Tool/Loon/Lsr/REGION_SPLITTER.lsr, policy=DIRECT, tag=CN REGION, enabled=true
@@ -85,7 +79,7 @@ https://kelee.one/Tool/Loon/Lpx/Bilibili_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/PinDuoDuo_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/smzdm_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Cainiao_remove_ads.lpx, enabled=true
-https://github.com/VirgilClyne/GetSomeFries/raw/main/plugin/General.plugin, enabled=true
+https://raw.githubusercontent.com/clhg/Rules/refs/heads/beta/Loon/directmode.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Taobao_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/RedPaper_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Amap_remove_ads.lpx, enabled=true
@@ -97,8 +91,8 @@ https://kelee.one/Tool/Loon/Lpx/FleaMarket_remove_ads.lpx, enabled=true
 # https://raw.githubusercontent.com/fmz200/wool_scripts/main/Loon/plugin/blockAds.plugin, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Node_detection_tool.lpx, enabled=true
 https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.loon.plugin, policy=HK Auto, enabled=true
-https://raw.githubusercontent.com/sub-store-org/Sub-Store/master/config/Loon.plugin, policy=HK Auto, enabled=true
-https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.loon.plugin, policy=HK Auto, enabled=true
+https://raw.githubusercontent.com/sub-store-org/Sub-Store/master/config/Loon.plugin, policy=HK Fallback, enabled=true
+https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.loon.plugin, policy=HK Fallback, enabled=true
 
 [Mitm]
 hostname =
