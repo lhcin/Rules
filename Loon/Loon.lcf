@@ -17,8 +17,8 @@ proxy-test-url = https://www.gstatic.com/generate_204
 resource-parser = https://raw.githubusercontent.com/sub-store-org/Sub-Store/release/sub-store-parser.loon.min.js
 geoip-url = https://raw.githubusercontent.com/Masaiki/GeoIP2-CN/release/Country.mmdb
 ipasn-url = https://raw.githubusercontent.com/P3TERX/GeoLite.mmdb/download/GeoLite2-ASN.mmdb
-skip-proxy = 192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,100.64.0.0/10,localhost,*.local,*.bosc.cn,*.icbc.com.cn,*.psbc.com,*.spdb.com.cn,*.cmbc.com.cn,*.abchina.com,*.bankcomm.com,*.cebbank.com,*.cgbchina.com.cn,*.hxb.com.cn,*.czbank.com,*.cib.com.cn,*.citicbank.com,*.gzcb.com.cn
-bypass-tun = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.18.0.0/15,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,255.255.255.255/32,fe80::/10,::1/128,localhost,*.local,*.bosc.cn,*.icbc.com.cn,*.psbc.com,*.spdb.com.cn,*.cmbc.com.cn,*.abchina.com,*.bankcomm.com,*.cebbank.com,*.cgbchina.com.cn,*.hxb.com.cn,*.czbank.com,*.cib.com.cn,*.citicbank.com,*.gzcb.com.cn
+skip-proxy = 192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,100.64.0.0/10,localhost,*.local
+bypass-tun = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.18.0.0/15,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,255.255.255.255/32
 
 [Proxy]
 
@@ -79,7 +79,7 @@ https://kelee.one/Tool/Loon/Lpx/Bilibili_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/PinDuoDuo_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/smzdm_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Cainiao_remove_ads.lpx, enabled=true
-https://github.com/VirgilClyne/GetSomeFries/raw/main/plugin/General.plugin, enabled=true
+https://raw.githubusercontent.com/clhg/Rules/refs/heads/beta/Loon/directmode.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Taobao_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/RedPaper_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Amap_remove_ads.lpx, enabled=true
